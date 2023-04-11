@@ -22,6 +22,7 @@ extern "C" {
 
 MPU9250_StatusTypeDef MPU9250_Init(MPU9250_HandleTypeDef* hmpu);
 MPU9250_StatusTypeDef MPU9250_SanityCheck(MPU9250_HandleTypeDef* hmpu);
+MPU9250_StatusTypeDef MPU9250_AccelRead(MPU9250_HandleTypeDef* hmpu);
 
 #ifdef __cplusplus
 }

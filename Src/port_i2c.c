@@ -50,3 +50,14 @@ MPU9250_StatusTypeDef I2C_Reg_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddre
     if (HAL_I2C_Mem_Read(&hi2c, (uint16_t)hmpu->Address << 1, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t), hmpu->I2C_Timeout) != HAL_OK) return MPU9250_ERROR;
     return MPU9250_OK;
 }
+
+/**
+ * @brief I2C burst read
+ * @note Read multiple registers in burst mode with I2C
+*/
+MPU9250_StatusTypeDef I2C_Burst_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont)
+{
+    assert(hmpu);
+    if (HAL_I2C_Mem_Read(&hi2c, (uint16_t)hmpu->Address << 1, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t)*DataAmont, hmpu->I2C_Timeout) != HAL_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}

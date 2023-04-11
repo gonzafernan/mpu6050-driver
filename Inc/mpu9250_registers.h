@@ -32,6 +32,16 @@ extern "C" {
 #define MPU9250_ACCEL_CONFIG        0x1CU
 
 /**
+ * @brief Accelerometer Measurements
+*/
+#define MPU9250_ACCEL_XOUT_H        0x3BU
+#define MPU9250_ACCEL_XOUT_L        0x3CU
+#define MPU9250_ACCEL_YOUT_H        0x3DU
+#define MPU9250_ACCEL_YOUT_L        0x3EU
+#define MPU9250_ACCEL_ZOUT_H        0x3FU
+#define MPU9250_ACCEL_ZOUT_L        0x40U
+
+/**
  * @brief This register is used to verify the identity of the device.
  * The contents of WHO_AM_I is an 8-bit device ID.
  * The default value of the register is 0x71. 

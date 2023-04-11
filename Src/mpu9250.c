@@ -31,6 +31,16 @@ MPU9250_StatusTypeDef MPU9250_Reg_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegA
 }
 
 /**
+ * @brief   Burst read MPU9250 registers
+ * @retval  MPU9250 status
+*/
+MPU9250_StatusTypeDef MPU9250_Burst_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
+{
+    /* MPU9250 register read wrapper */
+    return I2C_Burst_Read(hmpu, RegAddress, pData, DataAmount);
+}
+
+/**
  * @brief   Initialize MPU9250 device
  * @retval  MPU9250 status
 */
@@ -38,6 +48,16 @@ MPU9250_StatusTypeDef MPU9250_Init(MPU9250_HandleTypeDef* hmpu)
 {
     /* I2C initialization */
     if (I2C_Init(hmpu) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief Accelerometer Measurements
+*/
+MPU9250_StatusTypeDef MPU9250_AccelRead(MPU9250_HandleTypeDef* hmpu)
+{
+    uint8_t reg_value[6];
+    if (MPU9250_Burst_Read(hmpu, MPU9250_ACCEL_XOUT_H, reg_value, 6) != MPU9250_OK) return MPU9250_ERROR;
     return MPU9250_OK;
 }
 

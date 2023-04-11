@@ -26,6 +26,7 @@ extern "C" {
 /* Exported functions ---------------------------------------------------------*/
 MPU9250_StatusTypeDef I2C_Init(MPU9250_HandleTypeDef* hmpu);
 MPU9250_StatusTypeDef I2C_Reg_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddress, uint8_t* pData);
+MPU9250_StatusTypeDef I2C_Burst_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont);
 
 #ifdef __cplusplus
 }
