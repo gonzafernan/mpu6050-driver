@@ -42,6 +42,22 @@ extern "C" {
 #define MPU9250_ACCEL_ZOUT_L        0x40U
 
 /**
+ * @brief Temperature Measurements
+*/
+#define MPU9250_TEMP_OUT_H          0x41U
+#define MPU9250_TEMP_OUT_L          0x42U
+
+/**
+ * @brief Gyroscope Measurements
+*/
+#define MPU9250_GYRO_XOUT_H         0x43U     
+#define MPU9250_GYRO_XOUT_L         0x44U     
+#define MPU9250_GYRO_YOUT_H         0x45U     
+#define MPU9250_GYRO_YOUT_L         0x46U     
+#define MPU9250_GYRO_ZOUT_H         0x47U     
+#define MPU9250_GYRO_ZOUT_L         0x48U     
+
+/**
  * @brief This register is used to verify the identity of the device.
  * The contents of WHO_AM_I is an 8-bit device ID.
  * The default value of the register is 0x71. 

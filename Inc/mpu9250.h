@@ -20,9 +20,11 @@ extern "C" {
 
 #include "mpu9250_def.h"
 
-MPU9250_StatusTypeDef MPU9250_Init(MPU9250_HandleTypeDef* hmpu);
-MPU9250_StatusTypeDef MPU9250_SanityCheck(MPU9250_HandleTypeDef* hmpu);
-MPU9250_StatusTypeDef MPU9250_AccelRead(MPU9250_HandleTypeDef* hmpu);
+MPU9250_StatusTypeDef MPU9250_Init(void);
+MPU9250_StatusTypeDef MPU9250_SanityCheck(void);
+MPU9250_StatusTypeDef MPU9250_AccelRead(void);
+MPU9250_StatusTypeDef MPU9250_GyroRead(void);
+MPU9250_StatusTypeDef MPU9250_TempRead(void);
 
 #ifdef __cplusplus
 }
