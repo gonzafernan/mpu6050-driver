@@ -50,12 +50,12 @@ extern "C" {
 /**
  * @brief Gyroscope Measurements
 */
-#define MPU9250_GYRO_XOUT_H         0x43U     
-#define MPU9250_GYRO_XOUT_L         0x44U     
-#define MPU9250_GYRO_YOUT_H         0x45U     
-#define MPU9250_GYRO_YOUT_L         0x46U     
-#define MPU9250_GYRO_ZOUT_H         0x47U     
-#define MPU9250_GYRO_ZOUT_L         0x48U     
+#define MPU9250_GYRO_XOUT_H         0x43U
+#define MPU9250_GYRO_XOUT_L         0x44U
+#define MPU9250_GYRO_YOUT_H         0x45U
+#define MPU9250_GYRO_YOUT_L         0x46U
+#define MPU9250_GYRO_ZOUT_H         0x47U
+#define MPU9250_GYRO_ZOUT_L         0x48U 
 
 /**
  * @brief This register is used to verify the identity of the device.
@@ -63,6 +63,25 @@ extern "C" {
  * The default value of the register is 0x71. 
  */
 #define MPU9250_WHO_AM_I            0x75U
+
+/**
+ * @brief Gyro Full Scale Select:
+ * 00 = +250 dps
+ * 01 = +500 dps
+ * 10 = +1000 dps
+ * 11 = +2000 dps
+*/
+#define MPU9250_GYRO_FS_SEL   3
+
+/**
+ * @brief Accel Full Scale Select:
+ * 00 = \pm 2g
+ * 01 = \pm 4g
+ * 10 = \pm 8g
+ * 11 = \pm 16g
+*/
+#define MPU9250_ACCEL_FS_SEL   3
+
 
 #ifdef __cplusplus
 }
