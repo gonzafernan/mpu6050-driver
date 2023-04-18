@@ -71,7 +71,7 @@ extern "C" {
  * 10 = +1000 dps
  * 11 = +2000 dps
 */
-#define MPU9250_GYRO_FS_SEL   3
+#define MPU9250_GYRO_FS_SEL_OFFSET   3
 
 /**
  * @brief Accel Full Scale Select:
@@ -80,7 +80,7 @@ extern "C" {
  * 10 = \pm 8g
  * 11 = \pm 16g
 */
-#define MPU9250_ACCEL_FS_SEL   3
+#define MPU9250_ACCEL_FS_SEL_OFFSET   3
 
 
 #ifdef __cplusplus

@@ -64,6 +64,19 @@ MPU9250_StatusTypeDef I2C_Burst_Read(MPU9250_HandleTypeDef* hmpu, uint8_t RegAdd
     return MPU9250_OK;
 }
 
+/**
+ * @brief I2C write register
+*/
+MPU9250_StatusTypeDef I2C_Reg_Write(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddress, uint8_t* pData)
+{
+    assert(hmpu);
+    if (HAL_I2C_Mem_Write(&hi2c, (uint16_t)hmpu->Address << 1, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t), hmpu->I2C_Timeout) != HAL_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief I2C non-blocking read through DMA
+*/
 MPU9250_StatusTypeDef I2C_Read_DMA(MPU9250_HandleTypeDef* hmpu, uint8_t RegAddress, uint8_t*pData, uint16_t DataAmount)
 {
     assert(hmpu);

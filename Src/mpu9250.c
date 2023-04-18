@@ -46,6 +46,16 @@ MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t* pData, uin
     return I2C_Burst_Read(&hmpu1, RegAddress, pData, DataAmount);
 }
 
+/**
+ * @brief   Write MPU9250 register
+ * @retval  MPU9250 status
+*/
+MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t* pData)
+{
+    /* MPU9250 register write wrapper */
+    return I2C_Reg_Write(&hmpu1, RegAddress, pData);
+}
+
 MPU9250_StatusTypeDef MPU9250_NonBlocking_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
 {
     /* MPU9250 non-blocking register read wrapper */
@@ -86,10 +96,23 @@ MPU9250_StatusTypeDef MPU9250_Init(void)
 /**
  * @brief Gyro Full Scale Selection
 */
-MPU9250_StatusTypeDef MPU9250_GyroReadConfig(void)
+MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t* gyroConfig)
+{
+    if (MPU9250_Reg_Read(MPU9250_GYRO_CONFIG, gyroConfig) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief Set Guro Full Scale
+*/
+MPU9250_StatusTypeDef MPU9250_GyroSetFullScale(MPU9250_GyroConfig_FSTypeDef gyroFullScale)
 {
     uint8_t reg_value;
-    if (MPU9250_Reg_Read(MPU9250_GYRO_CONFIG, &reg_value) != MPU9250_OK) return MPU9250_ERROR;
+    if (MPU9250_GyroReadConfig(&reg_value) != MPU9250_OK) return MPU9250_ERROR;
+
+    reg_value &= ~(0b11 << MPU9250_GYRO_FS_SEL_OFFSET);
+    reg_value |= (gyroFullScale << MPU9250_GYRO_FS_SEL_OFFSET);
+    if (MPU9250_Reg_Write(MPU9250_GYRO_CONFIG, &reg_value) != MPU9250_OK) return MPU9250_ERROR;
     return MPU9250_OK;
 }
 
