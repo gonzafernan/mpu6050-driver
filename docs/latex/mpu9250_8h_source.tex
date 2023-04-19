@@ -29,16 +29,18 @@
 \DoxyCodeLine{00040\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a5ab29f123b0e6b2702d4afd00f70df7c}{MPU9250\_SanityCheck}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{00041\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_acd75c07bc32cc238ead3acbcc7790f71}{MPU9250\_GyroReadConfig}}(uint8\_t*\ pGyroConfig);}
 \DoxyCodeLine{00042\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a739c691f887347bef7cf62c2d61a6fc2}{MPU9250\_GyroSetFullScale}}(\mbox{\hyperlink{mpu9250_8h_af043cfe50ba6d37d11f5077bd0cd2dad}{MPU9250\_GyroConfig\_FSTypeDef}}\ GyroFullScale);}
-\DoxyCodeLine{00043\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a9fb6b3600c60ce4dd2474d57192d1c7e}{MPU9250\_AccelReadRaw}}(uint16\_t*\ pAccelX,\ uint16\_t*\ pAccelY,\ uint16\_t*\ pAccelZ);}
-\DoxyCodeLine{00044\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a73ed609cb4d25a925bf9e59733da9f04}{MPU9250\_GyroRead}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00045\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a25ee5fd265c327f0886bfd470281921d}{MPU9250\_TempReadRaw}}(uint8\_t*\ pTemp);}
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mpu9250_8h_a075cdc69e7519f9f0859258e44d8dda9}{MPU9250\_RxCallback}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{mpu9250_8h_ad6e1ebab4749e1676745a71dfca0ca6b}{MPU9250\_IsDataReady}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00050\ \}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_MPU9250\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_aa372ecfb4902e5273b56e9c8077e1612}{MPU9250\_GyroReadRaw}}(uint16\_t*\ pGyroX,\ uint16\_t*\ pGyroY,\ uint16\_t*\ pGyroZ);}
+\DoxyCodeLine{00044\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_aa059dcfc83346444894544a18508518d}{MPU9250\_GyroFetch}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a31c5ff9be7d7ef8cdc58bae19eec09fd}{MPU9250\_GyroReadFromBuffer}}(uint16\_t*\ pGyroX,\ uint16\_t*\ pGyroY,\ uint16\_t*\ pGyroZ);}
+\DoxyCodeLine{00046\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a9fb6b3600c60ce4dd2474d57192d1c7e}{MPU9250\_AccelReadRaw}}(uint16\_t*\ pAccelX,\ uint16\_t*\ pAccelY,\ uint16\_t*\ pAccelZ);}
+\DoxyCodeLine{00047\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}}\ \mbox{\hyperlink{mpu9250_8h_a25ee5fd265c327f0886bfd470281921d}{MPU9250\_TempReadRaw}}(uint8\_t*\ pTemp);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mpu9250_8h_a075cdc69e7519f9f0859258e44d8dda9}{MPU9250\_RxCallback}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{mpu9250_8h_ad6e1ebab4749e1676745a71dfca0ca6b}{MPU9250\_IsDataReady}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_MPU9250\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

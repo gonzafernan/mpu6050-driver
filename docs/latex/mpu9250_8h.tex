@@ -27,10 +27,14 @@ enum \mbox{\hyperlink{mpu9250_8h_af043cfe50ba6d37d11f5077bd0cd2dad}{MPU9250\+\_\
 \begin{DoxyCompactList}\small\item\em Read current Gyro configuration. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_a739c691f887347bef7cf62c2d61a6fc2}{MPU9250\+\_\+\+Gyro\+Set\+Full\+Scale}} (\mbox{\hyperlink{mpu9250_8h_af043cfe50ba6d37d11f5077bd0cd2dad}{MPU9250\+\_\+\+Gyro\+Config\+\_\+\+FSType\+Def}} Gyro\+Full\+Scale)
 \begin{DoxyCompactList}\small\item\em Gyro Full Scale selection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_aa372ecfb4902e5273b56e9c8077e1612}{MPU9250\+\_\+\+Gyro\+Read\+Raw}} (uint16\+\_\+t $\ast$p\+GyroX, uint16\+\_\+t $\ast$p\+GyroY, uint16\+\_\+t $\ast$p\+GyroZ)
+\begin{DoxyCompactList}\small\item\em Raw Gyroscope Measurements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_aa059dcfc83346444894544a18508518d}{MPU9250\+\_\+\+Gyro\+Fetch}} (void)
+\begin{DoxyCompactList}\small\item\em Fetch Gyro Measurements and load it into buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_a31c5ff9be7d7ef8cdc58bae19eec09fd}{MPU9250\+\_\+\+Gyro\+Read\+From\+Buffer}} (uint16\+\_\+t $\ast$p\+GyroX, uint16\+\_\+t $\ast$p\+GyroY, uint16\+\_\+t $\ast$p\+GyroZ)
+\begin{DoxyCompactList}\small\item\em Raw Gyroscope Measurements from buffer. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_a9fb6b3600c60ce4dd2474d57192d1c7e}{MPU9250\+\_\+\+Accel\+Read\+Raw}} (uint16\+\_\+t $\ast$p\+AccelX, uint16\+\_\+t $\ast$p\+AccelY, uint16\+\_\+t $\ast$p\+AccelZ)
 \begin{DoxyCompactList}\small\item\em Raw Accelerometer Measurements. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_a73ed609cb4d25a925bf9e59733da9f04}{MPU9250\+\_\+\+Gyro\+Read}} (void)
-\begin{DoxyCompactList}\small\item\em Gyroscope Measurements. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{mpu9250_8h_a25ee5fd265c327f0886bfd470281921d}{MPU9250\+\_\+\+Temp\+Read\+Raw}} (uint8\+\_\+t $\ast$p\+Temp)
 \begin{DoxyCompactList}\small\item\em Temperature Measurement. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{mpu9250_8h_a075cdc69e7519f9f0859258e44d8dda9}{MPU9250\+\_\+\+Rx\+Callback}} (void)
@@ -87,11 +91,11 @@ Raw Accelerometer Measurements.
 
 
 \begin{DoxyParams}{Parameters}
-{\em p\+AccelX} & Pointer to buffer where Gyro X-\/axis measurement will be stored \\
+{\em p\+AccelX} & Pointer to buffer where Accel X-\/axis measurement will be stored \\
 \hline
-{\em p\+AccelY} & Pointer to buffer where Gyro Y-\/axis measurement will be stored \\
+{\em p\+AccelY} & Pointer to buffer where Accel Y-\/axis measurement will be stored \\
 \hline
-{\em p\+AccelZ} & Pointer to buffer where Gyro Z-\/axis measurement will be stored \\
+{\em p\+AccelZ} & Pointer to buffer where Accel Z-\/axis measurement will be stored \\
 \hline
 \end{DoxyParams}
 
@@ -101,35 +105,39 @@ Raw Accelerometer Measurements.
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00143\ \{}
-\DoxyCodeLine{00144\ \ \ \ \ uint8\_t\ reg\_value[6];}
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a8fd2bf4b33816deabbefac5d2efc07c2}{MPU9250\_Burst\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_a233902a190292b4092ed81dde3d9c741}{MPU9250\_ACCEL\_XOUT\_H}},\ reg\_value,\ 6)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ *pAccelX\ =\ (reg\_value[0]\ <<\ 8)\ |\ reg\_value[1];}
-\DoxyCodeLine{00148\ \ \ \ \ *pAccelY\ =\ (reg\_value[2]\ <<\ 8)\ |\ reg\_value[3];}
-\DoxyCodeLine{00149\ \ \ \ \ *pAccelZ\ =\ (reg\_value[4]\ <<\ 8)\ |\ reg\_value[5];}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00152\ \}}
+\DoxyCodeLine{00189\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ uint8\_t\ reg\_value[6];}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a8fd2bf4b33816deabbefac5d2efc07c2}{MPU9250\_Burst\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_a233902a190292b4092ed81dde3d9c741}{MPU9250\_ACCEL\_XOUT\_H}},\ reg\_value,\ 6)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ *pAccelX\ =\ (reg\_value[0]\ <<\ 8)\ |\ reg\_value[1];}
+\DoxyCodeLine{00194\ \ \ \ \ *pAccelY\ =\ (reg\_value[2]\ <<\ 8)\ |\ reg\_value[3];}
+\DoxyCodeLine{00195\ \ \ \ \ *pAccelZ\ =\ (reg\_value[4]\ <<\ 8)\ |\ reg\_value[5];}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00198\ \}}
 
 \end{DoxyCode}
-\Hypertarget{mpu9250_8h_a73ed609cb4d25a925bf9e59733da9f04}\label{mpu9250_8h_a73ed609cb4d25a925bf9e59733da9f04} 
-\index{mpu9250.h@{mpu9250.h}!MPU9250\_GyroRead@{MPU9250\_GyroRead}}
-\index{MPU9250\_GyroRead@{MPU9250\_GyroRead}!mpu9250.h@{mpu9250.h}}
-\doxysubsubsection{\texorpdfstring{MPU9250\_GyroRead()}{MPU9250\_GyroRead()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} MPU9250\+\_\+\+Gyro\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\Hypertarget{mpu9250_8h_aa059dcfc83346444894544a18508518d}\label{mpu9250_8h_aa059dcfc83346444894544a18508518d} 
+\index{mpu9250.h@{mpu9250.h}!MPU9250\_GyroFetch@{MPU9250\_GyroFetch}}
+\index{MPU9250\_GyroFetch@{MPU9250\_GyroFetch}!mpu9250.h@{mpu9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_GyroFetch()}{MPU9250\_GyroFetch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} MPU9250\+\_\+\+Gyro\+Fetch (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Gyroscope Measurements. 
+Fetch Gyro Measurements and load it into buffer. 
 
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00169\ \{}
-\DoxyCodeLine{00170\ \ \ \ \ uint8\_t\ reg\_value[6];}
-\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a8fd2bf4b33816deabbefac5d2efc07c2}{MPU9250\_Burst\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_acaa2d67e1c58af7d682dc492acb8a911}{MPU9250\_GYRO\_XOUT\_H}},\ reg\_value,\ 6)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00173\ \}}
+\DoxyCodeLine{00160\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{if}\ (MPU9250\_NonBlocking\_Read(\mbox{\hyperlink{mpu9250__registers_8h_acaa2d67e1c58af7d682dc492acb8a911}{MPU9250\_GYRO\_XOUT\_H}},\ RxBuffer,\ 6)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00163\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_acd75c07bc32cc238ead3acbcc7790f71}\label{mpu9250_8h_acd75c07bc32cc238ead3acbcc7790f71} 
@@ -155,10 +163,83 @@ Read current Gyro configuration.
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00114\ \{}
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a9366177cc33f09740054e6651513ed1a}{MPU9250\_Reg\_Read}}(MPU9250\_GYRO\_CONFIG,\ pGyroConfig)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a9366177cc33f09740054e6651513ed1a}{MPU9250\_Reg\_Read}}(MPU9250\_GYRO\_CONFIG,\ pGyroConfig)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}
+\Hypertarget{mpu9250_8h_a31c5ff9be7d7ef8cdc58bae19eec09fd}\label{mpu9250_8h_a31c5ff9be7d7ef8cdc58bae19eec09fd} 
+\index{mpu9250.h@{mpu9250.h}!MPU9250\_GyroReadFromBuffer@{MPU9250\_GyroReadFromBuffer}}
+\index{MPU9250\_GyroReadFromBuffer@{MPU9250\_GyroReadFromBuffer}!mpu9250.h@{mpu9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_GyroReadFromBuffer()}{MPU9250\_GyroReadFromBuffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} MPU9250\+\_\+\+Gyro\+Read\+From\+Buffer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{p\+GyroX,  }\item[{uint16\+\_\+t $\ast$}]{p\+GyroY,  }\item[{uint16\+\_\+t $\ast$}]{p\+GyroZ }\end{DoxyParamCaption})}
+
+
+
+Raw Gyroscope Measurements from buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+GyroX} & Pointer to buffer where Gyro X-\/axis measurement will be stored \\
+\hline
+{\em p\+GyroY} & Pointer to buffer where Gyro Y-\/axis measurement will be stored \\
+\hline
+{\em p\+GyroZ} & Pointer to buffer where Gyro Z-\/axis measurement will be stored \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ *pGyroX\ =\ (RxBuffer[0]\ <<\ 8)\ |\ RxBuffer[1];}
+\DoxyCodeLine{00175\ \ \ \ \ *pGyroY\ =\ (RxBuffer[2]\ <<\ 8)\ |\ RxBuffer[3];}
+\DoxyCodeLine{00176\ \ \ \ \ *pGyroZ\ =\ (RxBuffer[4]\ <<\ 8)\ |\ RxBuffer[5];}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00179\ \}}
+
+\end{DoxyCode}
+\Hypertarget{mpu9250_8h_aa372ecfb4902e5273b56e9c8077e1612}\label{mpu9250_8h_aa372ecfb4902e5273b56e9c8077e1612} 
+\index{mpu9250.h@{mpu9250.h}!MPU9250\_GyroReadRaw@{MPU9250\_GyroReadRaw}}
+\index{MPU9250\_GyroReadRaw@{MPU9250\_GyroReadRaw}!mpu9250.h@{mpu9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_GyroReadRaw()}{MPU9250\_GyroReadRaw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} MPU9250\+\_\+\+Gyro\+Read\+Raw (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{p\+GyroX,  }\item[{uint16\+\_\+t $\ast$}]{p\+GyroY,  }\item[{uint16\+\_\+t $\ast$}]{p\+GyroZ }\end{DoxyParamCaption})}
+
+
+
+Raw Gyroscope Measurements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+GyroX} & Pointer to buffer where Gyro X-\/axis measurement will be stored \\
+\hline
+{\em p\+GyroY} & Pointer to buffer where Gyro Y-\/axis measurement will be stored \\
+\hline
+{\em p\+GyroZ} & Pointer to buffer where Gyro Z-\/axis measurement will be stored \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ uint8\_t\ reg\_value[6];}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a8fd2bf4b33816deabbefac5d2efc07c2}{MPU9250\_Burst\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_acaa2d67e1c58af7d682dc492acb8a911}{MPU9250\_GYRO\_XOUT\_H}},\ reg\_value,\ 6)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ *pGyroX\ =\ (reg\_value[0]\ <<\ 8)\ |\ reg\_value[1];}
+\DoxyCodeLine{00149\ \ \ \ \ *pGyroY\ =\ (reg\_value[2]\ <<\ 8)\ |\ reg\_value[3];}
+\DoxyCodeLine{00150\ \ \ \ \ *pGyroZ\ =\ (reg\_value[4]\ <<\ 8)\ |\ reg\_value[5];}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00153\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_a739c691f887347bef7cf62c2d61a6fc2}\label{mpu9250_8h_a739c691f887347bef7cf62c2d61a6fc2} 
@@ -183,15 +264,15 @@ Gyro Full Scale selection.
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00125\ \{}
-\DoxyCodeLine{00126\ \ \ \ \ uint8\_t\ reg\_value;}
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_acd75c07bc32cc238ead3acbcc7790f71}{MPU9250\_GyroReadConfig}}(\&reg\_value)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ reg\_value\ \&=\ \string~(0b11\ <<\ \mbox{\hyperlink{mpu9250__registers_8h_a5ef0c3c934045be054b7f929388c4d03}{MPU9250\_GYRO\_FS\_SEL\_OFFSET}});}
-\DoxyCodeLine{00130\ \ \ \ \ reg\_value\ |=\ (GyroFullScale\ <<\ \mbox{\hyperlink{mpu9250__registers_8h_a5ef0c3c934045be054b7f929388c4d03}{MPU9250\_GYRO\_FS\_SEL\_OFFSET}});}
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a7f0390a9fef5920778eca8f8b3536921}{MPU9250\_Reg\_Write}}(MPU9250\_GYRO\_CONFIG,\ \&reg\_value)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00126\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ uint8\_t\ reg\_value;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_acd75c07bc32cc238ead3acbcc7790f71}{MPU9250\_GyroReadConfig}}(\&reg\_value)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ reg\_value\ \&=\ \string~(0b11\ <<\ \mbox{\hyperlink{mpu9250__registers_8h_a5ef0c3c934045be054b7f929388c4d03}{MPU9250\_GYRO\_FS\_SEL\_OFFSET}});}
+\DoxyCodeLine{00131\ \ \ \ \ reg\_value\ |=\ (GyroFullScale\ <<\ \mbox{\hyperlink{mpu9250__registers_8h_a5ef0c3c934045be054b7f929388c4d03}{MPU9250\_GYRO\_FS\_SEL\_OFFSET}});}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a7f0390a9fef5920778eca8f8b3536921}{MPU9250\_Reg\_Write}}(MPU9250\_GYRO\_CONFIG,\ \&reg\_value)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00134\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_aea7a3c80419d4bc251999afbffed122e}\label{mpu9250_8h_aea7a3c80419d4bc251999afbffed122e} 
@@ -211,13 +292,13 @@ Initialize MPU9250 device.
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00100\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{/*\ I2C\ initialization\ */}}
-\DoxyCodeLine{00102\ \ \ \ \ hmpu1.\mbox{\hyperlink{struct____MPU9250__HandleTypeDef_a9f1528d6f7325c736e4ba2d73127fa5c}{Address}}\ =\ \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc}{MPU9250\_I2C\_ADDRESS\_1}};}
-\DoxyCodeLine{00103\ \ \ \ \ hmpu1.\mbox{\hyperlink{struct____MPU9250__HandleTypeDef_a668dc0d23194f4fb134c8eac730e6d6f}{I2C\_Timeout}}\ =\ 100;}
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{port__i2c_8c_a072143ab709914008679db81815da490}{I2C\_Init}}()\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{/*\ I2C\ initialization\ */}}
+\DoxyCodeLine{00103\ \ \ \ \ hmpu1.\mbox{\hyperlink{struct____MPU9250__HandleTypeDef_a9f1528d6f7325c736e4ba2d73127fa5c}{Address}}\ =\ \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc}{MPU9250\_I2C\_ADDRESS\_1}};}
+\DoxyCodeLine{00104\ \ \ \ \ hmpu1.\mbox{\hyperlink{struct____MPU9250__HandleTypeDef_a668dc0d23194f4fb134c8eac730e6d6f}{I2C\_Timeout}}\ =\ 100;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{port__i2c_8c_a072143ab709914008679db81815da490}{I2C\_Init}}()\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00107\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_ad6e1ebab4749e1676745a71dfca0ca6b}\label{mpu9250_8h_ad6e1ebab4749e1676745a71dfca0ca6b} 
@@ -237,14 +318,14 @@ MPU9250 check for data ready.
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00086\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (DataReadyFlag)}
-\DoxyCodeLine{00088\ \ \ \ \ \{}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ DataReadyFlag\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00091\ \ \ \ \ \}}
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (DataReadyFlag)}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ DataReadyFlag\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00094\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_a075cdc69e7519f9f0859258e44d8dda9}\label{mpu9250_8h_a075cdc69e7519f9f0859258e44d8dda9} 
@@ -259,9 +340,9 @@ MPU9250 callback for data ready.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00077\ \{}
-\DoxyCodeLine{00078\ \ \ \ \ DataReadyFlag\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ DataReadyFlag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_a5ab29f123b0e6b2702d4afd00f70df7c}\label{mpu9250_8h_a5ab29f123b0e6b2702d4afd00f70df7c} 
@@ -284,14 +365,14 @@ It performs a who am I to verify the I2C slave
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00181\ \{}
-\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{/*\ Who\ Am\ I\ check*/}}
-\DoxyCodeLine{00183\ \ \ \ \ uint8\_t\ reg\_value;}
-\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a9366177cc33f09740054e6651513ed1a}{MPU9250\_Reg\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_abbeb9762be6f9443df3c57561c8c3985}{MPU9250\_WHO\_AM\_I}},\ \&reg\_value)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{if}\ (reg\_value\ !=\ MPU9250\_WHO\_AM\_I\_DEFAULT)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00188\ \}}
+\DoxyCodeLine{00219\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{/*\ Who\ Am\ I\ check*/}}
+\DoxyCodeLine{00221\ \ \ \ \ uint8\_t\ reg\_value;}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a9366177cc33f09740054e6651513ed1a}{MPU9250\_Reg\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_abbeb9762be6f9443df3c57561c8c3985}{MPU9250\_WHO\_AM\_I}},\ \&reg\_value)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{if}\ (reg\_value\ !=\ MPU9250\_WHO\_AM\_I\_DEFAULT)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00226\ \}}
 
 \end{DoxyCode}
 \Hypertarget{mpu9250_8h_a25ee5fd265c327f0886bfd470281921d}\label{mpu9250_8h_a25ee5fd265c327f0886bfd470281921d} 
@@ -316,9 +397,9 @@ Temperature Measurement.
 \end{DoxyRetVals}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00160\ \{}
-\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{if}\ (MPU9250\_NonBlocking\_Read(\mbox{\hyperlink{mpu9250__registers_8h_afa30ca80a7c6bb0a8249fa8d6dd95a0f}{MPU9250\_TEMP\_OUT\_H}},\ pTemp,\ 2)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
-\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
-\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00206\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{mpu9250_8c_a8fd2bf4b33816deabbefac5d2efc07c2}{MPU9250\_Burst\_Read}}(\mbox{\hyperlink{mpu9250__registers_8h_afa30ca80a7c6bb0a8249fa8d6dd95a0f}{MPU9250\_TEMP\_OUT\_H}},\ pTemp,\ 2)\ !=\ MPU9250\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00209\ \}}
 
 \end{DoxyCode}

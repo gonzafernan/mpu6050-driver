@@ -41,6 +41,8 @@ MPU9250_StatusTypeDef MPU9250_SanityCheck(void);
 MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t* pGyroConfig);
 MPU9250_StatusTypeDef MPU9250_GyroSetFullScale(MPU9250_GyroConfig_FSTypeDef GyroFullScale);
 MPU9250_StatusTypeDef MPU9250_GyroReadRaw(uint16_t* pGyroX, uint16_t* pGyroY, uint16_t* pGyroZ);
+MPU9250_StatusTypeDef MPU9250_GyroFetch(void);
+MPU9250_StatusTypeDef MPU9250_GyroReadFromBuffer(uint16_t* pGyroX, uint16_t* pGyroY, uint16_t* pGyroZ);
 MPU9250_StatusTypeDef MPU9250_AccelReadRaw(uint16_t* pAccelX, uint16_t* pAccelY, uint16_t* pAccelZ);
 MPU9250_StatusTypeDef MPU9250_TempReadRaw(uint8_t* pTemp);
 void MPU9250_RxCallback(void);

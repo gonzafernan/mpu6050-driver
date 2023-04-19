@@ -25,6 +25,7 @@
 /* Private variables ---------------------------------------------------------*/
 static MPU9250_HandleTypeDef hmpu1;         /*! MPU9250 data structure */
 static bool DataReadyFlag = false;          /*! Flag for data ready */
+static uint8_t RxBuffer[6];                 /*! Buffer with data from non-blocking read */
 
 /* Exported functions ---------------------------------------------------------*/
 /**
@@ -152,6 +153,32 @@ MPU9250_StatusTypeDef MPU9250_GyroReadRaw(uint16_t* pGyroX, uint16_t* pGyroY, ui
 }
 
 /**
+ * @brief   Fetch Gyro Measurements and load it into buffer
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_GyroFetch(void)
+{
+    if (MPU9250_NonBlocking_Read(MPU9250_GYRO_XOUT_H, RxBuffer, 6) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief   Raw Gyroscope Measurements from buffer
+ * @param   pGyroX: Pointer to buffer where Gyro X-axis measurement will be stored
+ * @param   pGyroY: Pointer to buffer where Gyro Y-axis measurement will be stored
+ * @param   pGyroZ: Pointer to buffer where Gyro Z-axis measurement will be stored
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_GyroReadFromBuffer(uint16_t* pGyroX, uint16_t* pGyroY, uint16_t* pGyroZ)
+{
+    *pGyroX = (RxBuffer[0] << 8) | RxBuffer[1];
+    *pGyroY = (RxBuffer[2] << 8) | RxBuffer[3];
+    *pGyroZ = (RxBuffer[4] << 8) | RxBuffer[5];
+
+    return MPU9250_OK;
+}
+
+/**
  * @brief   Raw Accelerometer Measurements
  * @param   pAccelX: Pointer to buffer where Accel X-axis measurement will be stored
  * @param   pAccelY: Pointer to buffer where Accel Y-axis measurement will be stored
@@ -177,7 +204,7 @@ MPU9250_StatusTypeDef MPU9250_AccelReadRaw(uint16_t* pAccelX, uint16_t* pAccelY,
 */
 MPU9250_StatusTypeDef MPU9250_TempReadRaw(uint8_t* pTemp)
 {
-    if (MPU9250_NonBlocking_Read(MPU9250_TEMP_OUT_H, pTemp, 2) != MPU9250_OK) return MPU9250_ERROR;
+    if (MPU9250_Burst_Read(MPU9250_TEMP_OUT_H, pTemp, 2) != MPU9250_OK) return MPU9250_ERROR;
     return MPU9250_OK;
 }
 
