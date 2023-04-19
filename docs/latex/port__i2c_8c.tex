@@ -1,0 +1,299 @@
+\hypertarget{port__i2c_8c}{}\doxysection{Src/port\+\_\+i2c.c File Reference}
+\label{port__i2c_8c}\index{Src/port\_i2c.c@{Src/port\_i2c.c}}
+
+
+\+: MPU9250 Driver I2C port for STM32\+F1\+XX  
+
+
+{\ttfamily \#include \"{}port\+\_\+i2c.\+h\"{}}\newline
+{\ttfamily \#include \"{}mpu9250.\+h\"{}}\newline
+{\ttfamily \#include \"{}stm32f1xx\+\_\+hal.\+h\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{port__i2c_8c_a072143ab709914008679db81815da490}{I2\+C\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em I2C init function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{port__i2c_8c_ae99e5a7208bf63ecd7ace58f19792adb}{I2\+C\+\_\+\+Reg\+\_\+\+Read}} (uint16\+\_\+t Slave\+Address, uint8\+\_\+t Reg\+Address, uint8\+\_\+t $\ast$p\+Data)
+\begin{DoxyCompactList}\small\item\em I2C read register. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{port__i2c_8c_ab4e8b3e58833fb933b5d413296013555}{I2\+C\+\_\+\+Burst\+\_\+\+Read}} (uint16\+\_\+t Slave\+Address, uint8\+\_\+t Reg\+Address, uint8\+\_\+t $\ast$p\+Data, uint16\+\_\+t Data\+Amont)
+\begin{DoxyCompactList}\small\item\em I2C burst read. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{port__i2c_8c_ac9f1c85d0722c267343356ee80229d67}{I2\+C\+\_\+\+Reg\+\_\+\+Write}} (uint16\+\_\+t Slave\+Address, uint8\+\_\+t Reg\+Address, uint8\+\_\+t $\ast$p\+Data)
+\begin{DoxyCompactList}\small\item\em I2C write register. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{port__i2c_8c_a3a45580cd115a60a392c5f242f4ec6af}{I2\+C\+\_\+\+Read\+\_\+\+DMA}} (uint16\+\_\+t Slave\+Address, uint8\+\_\+t Reg\+Address, uint8\+\_\+t $\ast$p\+Data, uint16\+\_\+t Data\+Amount)
+\begin{DoxyCompactList}\small\item\em I2C non-\/blocking read through DMA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{port__i2c_8c_a08b1eb7b7be5b94395127e2a33b1b67e}{HAL\+\_\+\+I2\+C\+\_\+\+Msp\+Init}} (I2\+C\+\_\+\+Handle\+Type\+Def $\ast$i2c\+Handle)
+\item 
+void \mbox{\hyperlink{port__i2c_8c_adaa17249f3d5001ad363c736df31c593}{HAL\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}} (I2\+C\+\_\+\+Handle\+Type\+Def $\ast$i2c\+Handle)
+\item 
+void \mbox{\hyperlink{port__i2c_8c_ac16a95413b35f05c5ce725fefd8531a5}{HAL\+\_\+\+I2\+C\+\_\+\+Mem\+Rx\+Cplt\+Callback}} (I2\+C\+\_\+\+Handle\+Type\+Def $\ast$hi2c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{port__i2c_8c_a9cf31216ab15c3f167902641b70c0f38}\label{port__i2c_8c_a9cf31216ab15c3f167902641b70c0f38} 
+DMA\+\_\+\+Handle\+Type\+Def {\bfseries hdma\+\_\+i2c1\+\_\+rx}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: MPU9250 Driver I2C port for STM32\+F1\+XX 
+
+\begin{DoxyAuthor}{Author}
+\+: Gonzalo Gabriel Fernandez 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+MPU9250 Driver I2C port for STM32\+F1\+XX. Tested on STM32\+F103\+C8\+T6. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{port__i2c_8c_ac16a95413b35f05c5ce725fefd8531a5}\label{port__i2c_8c_ac16a95413b35f05c5ce725fefd8531a5} 
+\index{port\_i2c.c@{port\_i2c.c}!HAL\_I2C\_MemRxCpltCallback@{HAL\_I2C\_MemRxCpltCallback}}
+\index{HAL\_I2C\_MemRxCpltCallback@{HAL\_I2C\_MemRxCpltCallback}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2C\_MemRxCpltCallback()}{HAL\_I2C\_MemRxCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+C\+\_\+\+Mem\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{mpu9250_8c_a075cdc69e7519f9f0859258e44d8dda9}{MPU9250\_RxCallback}}();}
+\DoxyCodeLine{00164\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_adaa17249f3d5001ad363c736df31c593}\label{port__i2c_8c_adaa17249f3d5001ad363c736df31c593} 
+\index{port\_i2c.c@{port\_i2c.c}!HAL\_I2C\_MspDeInit@{HAL\_I2C\_MspDeInit}}
+\index{HAL\_I2C\_MspDeInit@{HAL\_I2C\_MspDeInit}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2C\_MspDeInit()}{HAL\_I2C\_MspDeInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{i2c\+Handle }\end{DoxyParamCaption})}
+
+I2\+C1 GPIO Configuration PB6 -\/-\/-\/---\texorpdfstring{$>$}{>} I2\+C1\+\_\+\+SCL PB7 -\/-\/-\/---\texorpdfstring{$>$}{>} I2\+C1\+\_\+\+SDA
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}(i2cHandle-\/>Instance==I2C1)}
+\DoxyCodeLine{00144\ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Peripheral\ clock\ disable\ */}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_I2C1\_CLK\_DISABLE();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ HAL\_GPIO\_DeInit(GPIOB,\ GPIO\_PIN\_6);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ HAL\_GPIO\_DeInit(GPIOB,\ GPIO\_PIN\_7);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2C1\ DMA\ DeInit\ */}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ HAL\_DMA\_DeInit(i2cHandle-\/>hdmarx);}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_a08b1eb7b7be5b94395127e2a33b1b67e}\label{port__i2c_8c_a08b1eb7b7be5b94395127e2a33b1b67e} 
+\index{port\_i2c.c@{port\_i2c.c}!HAL\_I2C\_MspInit@{HAL\_I2C\_MspInit}}
+\index{HAL\_I2C\_MspInit@{HAL\_I2C\_MspInit}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2C\_MspInit()}{HAL\_I2C\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+C\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{i2c\+Handle }\end{DoxyParamCaption})}
+
+I2\+C1 GPIO Configuration PB6 -\/-\/-\/---\texorpdfstring{$>$}{>} I2\+C1\+\_\+\+SCL PB7 -\/-\/-\/---\texorpdfstring{$>$}{>} I2\+C1\+\_\+\+SDA
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ GPIO\_InitTypeDef\ GPIO\_InitStruct\ =\ \{0\};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}(i2cHandle-\/>Instance==I2C1)}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ GPIO\_InitStruct.Pin\ =\ GPIO\_PIN\_6|GPIO\_PIN\_7;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ GPIO\_InitStruct.Mode\ =\ GPIO\_MODE\_AF\_OD;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ GPIO\_InitStruct.Speed\ =\ GPIO\_SPEED\_FREQ\_HIGH;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ HAL\_GPIO\_Init(GPIOB,\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2C1\ clock\ enable\ */}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_I2C1\_CLK\_ENABLE();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2C1\ DMA\ Init\ */}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2C1\_RX\ Init\ */}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Instance\ =\ DMA1\_Channel7;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.Direction\ =\ DMA\_PERIPH\_TO\_MEMORY;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.PeriphInc\ =\ DMA\_PINC\_DISABLE;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.MemInc\ =\ DMA\_MINC\_ENABLE;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.PeriphDataAlignment\ =\ DMA\_PDATAALIGN\_BYTE;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.MemDataAlignment\ =\ DMA\_MDATAALIGN\_BYTE;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.Mode\ =\ DMA\_NORMAL;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ hdma\_i2c1\_rx.Init.Priority\ =\ DMA\_PRIORITY\_LOW;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_DMA\_Init(\&hdma\_i2c1\_rx)\ !=\ HAL\_OK)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(1);\ \ \ \textcolor{comment}{//\ TODO:\ Error\ Handler}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \_\_HAL\_LINKDMA(i2cHandle,hdmarx,hdma\_i2c1\_rx);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_ab4e8b3e58833fb933b5d413296013555}\label{port__i2c_8c_ab4e8b3e58833fb933b5d413296013555} 
+\index{port\_i2c.c@{port\_i2c.c}!I2C\_Burst\_Read@{I2C\_Burst\_Read}}
+\index{I2C\_Burst\_Read@{I2C\_Burst\_Read}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_Burst\_Read()}{I2C\_Burst\_Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} I2\+C\+\_\+\+Burst\+\_\+\+Read (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Slave\+Address,  }\item[{uint8\+\_\+t}]{Reg\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{uint16\+\_\+t}]{Data\+Amont }\end{DoxyParamCaption})}
+
+
+
+I2C burst read. 
+
+\begin{DoxyNote}{Note}
+Read multiple registers in burst mode with I2C 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em Slave\+Address} & I2C slave address \\
+\hline
+{\em Reg\+Address} & Addres of first register to read \\
+\hline
+{\em p\+Data} & Pointer to buffer where the data received is stored \\
+\hline
+{\em Data\+Amount} & Amount of data to read \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_I2C\_Mem\_Read(\&hi2c,\ SlaveAddress,\ RegAddress,\ \textcolor{keyword}{sizeof}(uint8\_t),\ pData,\ \textcolor{keyword}{sizeof}(uint8\_t)*DataAmont,\ I2C\_READ\_TIMEOUT)\ !=\ HAL\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_a072143ab709914008679db81815da490}\label{port__i2c_8c_a072143ab709914008679db81815da490} 
+\index{port\_i2c.c@{port\_i2c.c}!I2C\_Init@{I2C\_Init}}
+\index{I2C\_Init@{I2C\_Init}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_Init()}{I2C\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} I2\+C\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+I2C init function. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ hi2c.Instance\ =\ I2C1;}
+\DoxyCodeLine{00033\ \ \ \ \ hi2c.Init.ClockSpeed\ =\ 400000;}
+\DoxyCodeLine{00034\ \ \ \ \ hi2c.Init.DutyCycle\ =\ I2C\_DUTYCYCLE\_2;}
+\DoxyCodeLine{00035\ \ \ \ \ hi2c.Init.OwnAddress1\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ hi2c.Init.AddressingMode\ =\ I2C\_ADDRESSINGMODE\_7BIT;}
+\DoxyCodeLine{00037\ \ \ \ \ hi2c.Init.DualAddressMode\ =\ I2C\_DUALADDRESS\_DISABLE;}
+\DoxyCodeLine{00038\ \ \ \ \ hi2c.Init.OwnAddress2\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ hi2c.Init.GeneralCallMode\ =\ I2C\_GENERALCALL\_DISABLE;}
+\DoxyCodeLine{00040\ \ \ \ \ hi2c.Init.NoStretchMode\ =\ I2C\_NOSTRETCH\_DISABLE;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_I2C\_Init(\&hi2c)\ !=\ HAL\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_a3a45580cd115a60a392c5f242f4ec6af}\label{port__i2c_8c_a3a45580cd115a60a392c5f242f4ec6af} 
+\index{port\_i2c.c@{port\_i2c.c}!I2C\_Read\_DMA@{I2C\_Read\_DMA}}
+\index{I2C\_Read\_DMA@{I2C\_Read\_DMA}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_Read\_DMA()}{I2C\_Read\_DMA()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} I2\+C\+\_\+\+Read\+\_\+\+DMA (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Slave\+Address,  }\item[{uint8\+\_\+t}]{Reg\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{uint16\+\_\+t}]{Data\+Amount }\end{DoxyParamCaption})}
+
+
+
+I2C non-\/blocking read through DMA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Slave\+Address} & I2C slave address \\
+\hline
+{\em Reg\+Address} & Addres of register to write \\
+\hline
+{\em p\+Data} & Pointer to buffer with value to write \\
+\hline
+{\em Data\+Amount} & Amount of data to write \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_I2C\_Mem\_Read\_DMA(\&hi2c,\ SlaveAddress,\ RegAddress,\ \textcolor{keyword}{sizeof}(uint8\_t),\ pData,\ DataAmount)\ !=\ HAL\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_ae99e5a7208bf63ecd7ace58f19792adb}\label{port__i2c_8c_ae99e5a7208bf63ecd7ace58f19792adb} 
+\index{port\_i2c.c@{port\_i2c.c}!I2C\_Reg\_Read@{I2C\_Reg\_Read}}
+\index{I2C\_Reg\_Read@{I2C\_Reg\_Read}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_Reg\_Read()}{I2C\_Reg\_Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} I2\+C\+\_\+\+Reg\+\_\+\+Read (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Slave\+Address,  }\item[{uint8\+\_\+t}]{Reg\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data }\end{DoxyParamCaption})}
+
+
+
+I2C read register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Slave\+Address} & I2C slave address \\
+\hline
+{\em Reg\+Address} & Address of register to read \\
+\hline
+{\em p\+Data} & Pointer to buffer where the register value will be stored \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_I2C\_Mem\_Read(\&hi2c,\ SlaveAddress,\ RegAddress,\ \textcolor{keyword}{sizeof}(uint8\_t),\ pData,\ \textcolor{keyword}{sizeof}(uint8\_t),\ I2C\_READ\_TIMEOUT)\ !=\ HAL\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+\Hypertarget{port__i2c_8c_ac9f1c85d0722c267343356ee80229d67}\label{port__i2c_8c_ac9f1c85d0722c267343356ee80229d67} 
+\index{port\_i2c.c@{port\_i2c.c}!I2C\_Reg\_Write@{I2C\_Reg\_Write}}
+\index{I2C\_Reg\_Write@{I2C\_Reg\_Write}!port\_i2c.c@{port\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_Reg\_Write()}{I2C\_Reg\_Write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} I2\+C\+\_\+\+Reg\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Slave\+Address,  }\item[{uint8\+\_\+t}]{Reg\+Address,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data }\end{DoxyParamCaption})}
+
+
+
+I2C write register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Slave\+Address} & I2C slave address \\
+\hline
+{\em Reg\+Address} & Addres of register to write \\
+\hline
+{\em p\+Data} & Pointer to buffer with value to write \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em MPU9250\+\_\+\+Status\+Type\+Def} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (HAL\_I2C\_Mem\_Write(\&hi2c,\ SlaveAddress,\ RegAddress,\ \textcolor{keyword}{sizeof}(uint8\_t),\ pData,\ \textcolor{keyword}{sizeof}(uint8\_t),\ I2C\_WRITE\_TIMEOUT)\ !=\ HAL\_OK)\ \textcolor{keywordflow}{return}\ MPU9250\_ERROR;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ MPU9250\_OK;}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}

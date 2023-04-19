@@ -1,0 +1,92 @@
+\hypertarget{mpu9250__def_8h}{}\doxysection{Inc/mpu9250\+\_\+def.h File Reference}
+\label{mpu9250__def_8h}\index{Inc/mpu9250\_def.h@{Inc/mpu9250\_def.h}}
+
+
+\+: MPU9250 types definition  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct____MPU9250__HandleTypeDef}{\+\_\+\+\_\+\+MPU9250\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em MPU9250 handle structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mpu9250__def_8h_ab008ad3337e0164fb6ca28e9b26672e1}\label{mpu9250__def_8h_ab008ad3337e0164fb6ca28e9b26672e1} 
+typedef struct \mbox{\hyperlink{struct____MPU9250__HandleTypeDef}{\+\_\+\+\_\+\+MPU9250\+\_\+\+Handle\+Type\+Def}} {\bfseries MPU9250\+\_\+\+Handle\+Type\+Def}
+\begin{DoxyCompactList}\small\item\em MPU9250 handle structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}} \{ {\bfseries MPU9250\+\_\+\+OK} = 0x00U
+, {\bfseries MPU9250\+\_\+\+ERROR} = 0x01U
+ \}
+\begin{DoxyCompactList}\small\item\em MPU9250 Status structure definition. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728e}{MPU9250\+\_\+\+I2\+C\+\_\+\+Address\+Type\+Def}} \{ \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc}{MPU9250\+\_\+\+I2\+C\+\_\+\+ADDRESS\+\_\+1}} = 0x68U
+, \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728ea18439cdd64f24f63f8255a63ae2b802f}{MPU9250\+\_\+\+I2\+C\+\_\+\+ADDRESS\+\_\+2}} = 0x69U
+ \}
+\begin{DoxyCompactList}\small\item\em MPU9250 I2C slave address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: MPU9250 types definition 
+
+\begin{DoxyAuthor}{Author}
+\+: Gonzalo Gabriel Fernandez 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+MPU9250 types and structures definition. 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728e}\label{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728e} 
+\index{mpu9250\_def.h@{mpu9250\_def.h}!MPU9250\_I2C\_AddressTypeDef@{MPU9250\_I2C\_AddressTypeDef}}
+\index{MPU9250\_I2C\_AddressTypeDef@{MPU9250\_I2C\_AddressTypeDef}!mpu9250\_def.h@{mpu9250\_def.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_I2C\_AddressTypeDef}{MPU9250\_I2C\_AddressTypeDef}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728e}{MPU9250\+\_\+\+I2\+C\+\_\+\+Address\+Type\+Def}}}
+
+
+
+MPU9250 I2C slave address. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MPU9250\_I2C\_ADDRESS\_1@{MPU9250\_I2C\_ADDRESS\_1}!mpu9250\_def.h@{mpu9250\_def.h}}\index{mpu9250\_def.h@{mpu9250\_def.h}!MPU9250\_I2C\_ADDRESS\_1@{MPU9250\_I2C\_ADDRESS\_1}}}\Hypertarget{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc}\label{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc} 
+MPU9250\+\_\+\+I2\+C\+\_\+\+ADDRESS\+\_\+1&I2C adress without AD0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MPU9250\_I2C\_ADDRESS\_2@{MPU9250\_I2C\_ADDRESS\_2}!mpu9250\_def.h@{mpu9250\_def.h}}\index{mpu9250\_def.h@{mpu9250\_def.h}!MPU9250\_I2C\_ADDRESS\_2@{MPU9250\_I2C\_ADDRESS\_2}}}\Hypertarget{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728ea18439cdd64f24f63f8255a63ae2b802f}\label{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728ea18439cdd64f24f63f8255a63ae2b802f} 
+MPU9250\+\_\+\+I2\+C\+\_\+\+ADDRESS\+\_\+2&I2C adress with AD0 ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc}{MPU9250\_I2C\_ADDRESS\_1}}\ \ \ =\ 0x68U,\ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728ea18439cdd64f24f63f8255a63ae2b802f}{MPU9250\_I2C\_ADDRESS\_2}}\ \ \ =\ 0x69U,\ \ \ \ }
+\DoxyCodeLine{00043\ \}\ \mbox{\hyperlink{mpu9250__def_8h_a83be6a9a68a3f3c5700c39676e0f728e}{MPU9250\_I2C\_AddressTypeDef}};}
+
+\end{DoxyCode}
+\Hypertarget{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}\label{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430} 
+\index{mpu9250\_def.h@{mpu9250\_def.h}!MPU9250\_StatusTypeDef@{MPU9250\_StatusTypeDef}}
+\index{MPU9250\_StatusTypeDef@{MPU9250\_StatusTypeDef}!mpu9250\_def.h@{mpu9250\_def.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_StatusTypeDef}{MPU9250\_StatusTypeDef}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\+\_\+\+Status\+Type\+Def}}}
+
+
+
+MPU9250 Status structure definition. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ MPU9250\_OK\ \ \ \ \ \ =\ 0x00U,}
+\DoxyCodeLine{00031\ \ \ \ \ MPU9250\_ERROR\ \ \ =\ 0x01U}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \}\ \mbox{\hyperlink{mpu9250__def_8h_a5385d36e3dfdc7a4da6a0cc3828cd430}{MPU9250\_StatusTypeDef}};}
+
+\end{DoxyCode}

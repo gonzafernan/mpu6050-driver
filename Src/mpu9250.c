@@ -33,7 +33,7 @@ static bool RxFlag = false;
 MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t* pData)
 {
     /* MPU9250 register read wrapper */
-    return I2C_Reg_Read(&hmpu1, RegAddress, pData);
+    return I2C_Reg_Read((uint16_t)hmpu1.Address << 1, RegAddress, pData);
 }
 
 /**
@@ -43,7 +43,7 @@ MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t* pData)
 MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
 {
     /* MPU9250 register read wrapper */
-    return I2C_Burst_Read(&hmpu1, RegAddress, pData, DataAmount);
+    return I2C_Burst_Read((uint16_t)hmpu1.Address << 1, RegAddress, pData, DataAmount);
 }
 
 /**
@@ -53,13 +53,13 @@ MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t* pData, uin
 MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t* pData)
 {
     /* MPU9250 register write wrapper */
-    return I2C_Reg_Write(&hmpu1, RegAddress, pData);
+    return I2C_Reg_Write((uint16_t)hmpu1.Address << 1, RegAddress, pData);
 }
 
 MPU9250_StatusTypeDef MPU9250_NonBlocking_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
 {
     /* MPU9250 non-blocking register read wrapper */
-    return I2C_Read_DMA(&hmpu1, RegAddress, pData, DataAmount);
+    return I2C_Read_DMA((uint16_t)hmpu1.Address << 1, RegAddress, pData, DataAmount);
 }
 
 /**
@@ -89,7 +89,7 @@ MPU9250_StatusTypeDef MPU9250_Init(void)
     /* I2C initialization */
     hmpu1.Address = MPU9250_I2C_ADDRESS_1;
     hmpu1.I2C_Timeout = 100;
-    if (I2C_Init(&hmpu1) != MPU9250_OK) return MPU9250_ERROR;
+    if (I2C_Init() != MPU9250_OK) return MPU9250_ERROR;
     return MPU9250_OK;
 }
 
