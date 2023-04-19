@@ -92,7 +92,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a9af662ce0acc744375c7499d2243d733"><td class="memItemLeft" align="right" valign="top"><a id="a9af662ce0acc744375c7499d2243d733" name="a9af662ce0acc744375c7499d2243d733"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MPU9250_WHO_AM_I_DEFAULT</b>&#160;&#160;&#160;0x70</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MPU9250_WHO_AM_I_DEFAULT</b>&#160;&#160;&#160;0x70    /*! Who Am I default value (read with logic analyzer) */</td></tr>
 <tr class="separator:a9af662ce0acc744375c7499d2243d733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -112,27 +112,28 @@ Functions</h2></td></tr>
 <tr class="memdesc:a075cdc69e7519f9f0859258e44d8dda9"><td class="mdescLeft">&#160;</td><td class="mdescRight">MPU9250 callback for data ready.  <br /></td></tr>
 <tr class="separator:a075cdc69e7519f9f0859258e44d8dda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6e1ebab4749e1676745a71dfca0ca6b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#ad6e1ebab4749e1676745a71dfca0ca6b">MPU9250_IsDataReady</a> (void)</td></tr>
+<tr class="memdesc:ad6e1ebab4749e1676745a71dfca0ca6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">MPU9250 check for data ready.  <br /></td></tr>
 <tr class="separator:ad6e1ebab4749e1676745a71dfca0ca6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea7a3c80419d4bc251999afbffed122e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#aea7a3c80419d4bc251999afbffed122e">MPU9250_Init</a> (void)</td></tr>
 <tr class="memdesc:aea7a3c80419d4bc251999afbffed122e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize MPU9250 device.  <br /></td></tr>
 <tr class="separator:aea7a3c80419d4bc251999afbffed122e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8a3481692786176fb2903ba591353ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#ac8a3481692786176fb2903ba591353ea">MPU9250_GyroReadConfig</a> (uint8_t *gyroConfig)</td></tr>
-<tr class="memdesc:ac8a3481692786176fb2903ba591353ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gyro Full Scale Selection.  <br /></td></tr>
-<tr class="separator:ac8a3481692786176fb2903ba591353ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a140980b2e50cfcde94dfd05b0fc103c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a140980b2e50cfcde94dfd05b0fc103c1">MPU9250_GyroSetFullScale</a> (<a class="el" href="mpu9250_8h.html#af043cfe50ba6d37d11f5077bd0cd2dad">MPU9250_GyroConfig_FSTypeDef</a> gyroFullScale)</td></tr>
-<tr class="memdesc:a140980b2e50cfcde94dfd05b0fc103c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Guro Full Scale.  <br /></td></tr>
-<tr class="separator:a140980b2e50cfcde94dfd05b0fc103c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b83a95bde10bc6020fe2cf596c43145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a0b83a95bde10bc6020fe2cf596c43145">MPU9250_AccelReadRaw</a> (uint16_t *AccelX, uint16_t *AccelY, uint16_t *AccelZ)</td></tr>
-<tr class="memdesc:a0b83a95bde10bc6020fe2cf596c43145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accelerometer Measurements.  <br /></td></tr>
-<tr class="separator:a0b83a95bde10bc6020fe2cf596c43145"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a001ad3eea57d81865868f0391a5f1549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a001ad3eea57d81865868f0391a5f1549">MPU9250_TempRead</a> (uint8_t *pTemp)</td></tr>
-<tr class="memdesc:a001ad3eea57d81865868f0391a5f1549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature Measurements.  <br /></td></tr>
-<tr class="separator:a001ad3eea57d81865868f0391a5f1549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd75c07bc32cc238ead3acbcc7790f71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#acd75c07bc32cc238ead3acbcc7790f71">MPU9250_GyroReadConfig</a> (uint8_t *pGyroConfig)</td></tr>
+<tr class="memdesc:acd75c07bc32cc238ead3acbcc7790f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read current Gyro configuration.  <br /></td></tr>
+<tr class="separator:acd75c07bc32cc238ead3acbcc7790f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739c691f887347bef7cf62c2d61a6fc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a739c691f887347bef7cf62c2d61a6fc2">MPU9250_GyroSetFullScale</a> (<a class="el" href="mpu9250_8h.html#af043cfe50ba6d37d11f5077bd0cd2dad">MPU9250_GyroConfig_FSTypeDef</a> GyroFullScale)</td></tr>
+<tr class="memdesc:a739c691f887347bef7cf62c2d61a6fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gyro Full Scale selection.  <br /></td></tr>
+<tr class="separator:a739c691f887347bef7cf62c2d61a6fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb6b3600c60ce4dd2474d57192d1c7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a9fb6b3600c60ce4dd2474d57192d1c7e">MPU9250_AccelReadRaw</a> (uint16_t *pAccelX, uint16_t *pAccelY, uint16_t *pAccelZ)</td></tr>
+<tr class="memdesc:a9fb6b3600c60ce4dd2474d57192d1c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw Accelerometer Measurements.  <br /></td></tr>
+<tr class="separator:a9fb6b3600c60ce4dd2474d57192d1c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ee5fd265c327f0886bfd470281921d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a25ee5fd265c327f0886bfd470281921d">MPU9250_TempReadRaw</a> (uint8_t *pTemp)</td></tr>
+<tr class="memdesc:a25ee5fd265c327f0886bfd470281921d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature Measurement.  <br /></td></tr>
+<tr class="separator:a25ee5fd265c327f0886bfd470281921d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73ed609cb4d25a925bf9e59733da9f04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a73ed609cb4d25a925bf9e59733da9f04">MPU9250_GyroRead</a> (void)</td></tr>
 <tr class="memdesc:a73ed609cb4d25a925bf9e59733da9f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gyroscope Measurements.  <br /></td></tr>
 <tr class="separator:a73ed609cb4d25a925bf9e59733da9f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ab29f123b0e6b2702d4afd00f70df7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpu9250_8c.html#a5ab29f123b0e6b2702d4afd00f70df7c">MPU9250_SanityCheck</a> (void)</td></tr>
-<tr class="memdesc:a5ab29f123b0e6b2702d4afd00f70df7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">MPU9250 sanity check.  <br /></td></tr>
+<tr class="memdesc:a5ab29f123b0e6b2702d4afd00f70df7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">MPU9250 Sanity Check.  <br /></td></tr>
 <tr class="separator:a5ab29f123b0e6b2702d4afd00f70df7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -141,8 +142,8 @@ Functions</h2></td></tr>
 <dl class="section attention"><dt>Attention</dt><dd></dd></dl>
 <p>MPU9250 C Driver private and public functions and variables. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0b83a95bde10bc6020fe2cf596c43145" name="a0b83a95bde10bc6020fe2cf596c43145"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b83a95bde10bc6020fe2cf596c43145">&#9670;&#160;</a></span>MPU9250_AccelReadRaw()</h2>
+<a id="a9fb6b3600c60ce4dd2474d57192d1c7e" name="a9fb6b3600c60ce4dd2474d57192d1c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb6b3600c60ce4dd2474d57192d1c7e">&#9670;&#160;</a></span>MPU9250_AccelReadRaw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,19 +152,19 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a> MPU9250_AccelReadRaw </td>
           <td>(</td>
           <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>AccelX</em>, </td>
+          <td class="paramname"><em>pAccelX</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>AccelY</em>, </td>
+          <td class="paramname"><em>pAccelY</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>AccelZ</em>&#160;</td>
+          <td class="paramname"><em>pAccelZ</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,18 +174,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Accelerometer Measurements. </p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
-<div class="line"><span class="lineno">  124</span>    uint8_t reg_value[6];</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a8fd2bf4b33816deabbefac5d2efc07c2">MPU9250_Burst_Read</a>(<a class="code hl_define" href="mpu9250__registers_8h.html#a233902a190292b4092ed81dde3d9c741">MPU9250_ACCEL_XOUT_H</a>, reg_value, 6) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>    *AccelX = (reg_value[0] &lt;&lt; 8) | reg_value[1];</div>
-<div class="line"><span class="lineno">  128</span>    *AccelY = (reg_value[2] &lt;&lt; 8) | reg_value[3];</div>
-<div class="line"><span class="lineno">  129</span>    *AccelZ = (reg_value[4] &lt;&lt; 8) | reg_value[5];</div>
-<div class="line"><span class="lineno">  130</span> </div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">  132</span>}</div>
-<div class="ttc" id="ampu9250_8c_html_a8fd2bf4b33816deabbefac5d2efc07c2"><div class="ttname"><a href="mpu9250_8c.html#a8fd2bf4b33816deabbefac5d2efc07c2">MPU9250_Burst_Read</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t *pData, uint16_t DataAmount)</div><div class="ttdoc">Burst read MPU9250 registers.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:43</div></div>
+<p>Raw Accelerometer Measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pAccelX</td><td>Pointer to buffer where Gyro X-axis measurement will be stored </td></tr>
+    <tr><td class="paramname">pAccelY</td><td>Pointer to buffer where Gyro Y-axis measurement will be stored </td></tr>
+    <tr><td class="paramname">pAccelZ</td><td>Pointer to buffer where Gyro Z-axis measurement will be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  143</span>{</div>
+<div class="line"><span class="lineno">  144</span>    uint8_t reg_value[6];</div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a8fd2bf4b33816deabbefac5d2efc07c2">MPU9250_Burst_Read</a>(<a class="code hl_define" href="mpu9250__registers_8h.html#a233902a190292b4092ed81dde3d9c741">MPU9250_ACCEL_XOUT_H</a>, reg_value, 6) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  146</span> </div>
+<div class="line"><span class="lineno">  147</span>    *pAccelX = (reg_value[0] &lt;&lt; 8) | reg_value[1];</div>
+<div class="line"><span class="lineno">  148</span>    *pAccelY = (reg_value[2] &lt;&lt; 8) | reg_value[3];</div>
+<div class="line"><span class="lineno">  149</span>    *pAccelZ = (reg_value[4] &lt;&lt; 8) | reg_value[5];</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  152</span>}</div>
+<div class="ttc" id="ampu9250_8c_html_a8fd2bf4b33816deabbefac5d2efc07c2"><div class="ttname"><a href="mpu9250_8c.html#a8fd2bf4b33816deabbefac5d2efc07c2">MPU9250_Burst_Read</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t *pData, uint16_t DataAmount)</div><div class="ttdoc">Burst read MPU9250 registers.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:49</div></div>
 <div class="ttc" id="ampu9250__registers_8h_html_a233902a190292b4092ed81dde3d9c741"><div class="ttname"><a href="mpu9250__registers_8h.html#a233902a190292b4092ed81dde3d9c741">MPU9250_ACCEL_XOUT_H</a></div><div class="ttdeci">#define MPU9250_ACCEL_XOUT_H</div><div class="ttdoc">Accelerometer Measurements.</div><div class="ttdef"><b>Definition:</b> mpu9250_registers.h:37</div></div>
 </div><!-- fragment -->
 </div>
@@ -222,16 +237,24 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Burst read MPU9250 registers. </p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">MPU9250</td><td>status </td></tr>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RegAddress</td><td>Address of first register to read </td></tr>
+    <tr><td class="paramname">pData</td><td>Pointer to buffer where data will be stored </td></tr>
+    <tr><td class="paramname">DataAmount</td><td>Amount of data to read </td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">   44</span>{</div>
-<div class="line"><span class="lineno">   45</span>    <span class="comment">/* MPU9250 register read wrapper */</span></div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#ab4e8b3e58833fb933b5d413296013555">I2C_Burst_Read</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData, DataAmount);</div>
-<div class="line"><span class="lineno">   47</span>}</div>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
+<div class="line"><span class="lineno">   51</span>    <span class="comment">/* MPU9250 register read wrapper */</span></div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#ab4e8b3e58833fb933b5d413296013555">I2C_Burst_Read</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData, DataAmount);</div>
+<div class="line"><span class="lineno">   53</span>}</div>
 <div class="ttc" id="aport__i2c_8c_html_ab4e8b3e58833fb933b5d413296013555"><div class="ttname"><a href="port__i2c_8c.html#ab4e8b3e58833fb933b5d413296013555">I2C_Burst_Read</a></div><div class="ttdeci">MPU9250_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData, uint16_t DataAmont)</div><div class="ttdoc">I2C burst read.</div><div class="ttdef"><b>Definition:</b> port_i2c.c:68</div></div>
 <div class="ttc" id="astruct____MPU9250__HandleTypeDef_html_a9f1528d6f7325c736e4ba2d73127fa5c"><div class="ttname"><a href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">__MPU9250_HandleTypeDef::Address</a></div><div class="ttdeci">MPU9250_I2C_AddressTypeDef Address</div><div class="ttdef"><b>Definition:</b> mpu9250_def.h:50</div></div>
 </div><!-- fragment -->
@@ -254,17 +277,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gyroscope Measurements. </p>
-<div class="fragment"><div class="line"><span class="lineno">  147</span>{</div>
-<div class="line"><span class="lineno">  148</span>    uint8_t reg_value[6];</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a8fd2bf4b33816deabbefac5d2efc07c2">MPU9250_Burst_Read</a>(<a class="code hl_define" href="mpu9250__registers_8h.html#acaa2d67e1c58af7d682dc492acb8a911">MPU9250_GYRO_XOUT_H</a>, reg_value, 6) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">  151</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  169</span>{</div>
+<div class="line"><span class="lineno">  170</span>    uint8_t reg_value[6];</div>
+<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a8fd2bf4b33816deabbefac5d2efc07c2">MPU9250_Burst_Read</a>(<a class="code hl_define" href="mpu9250__registers_8h.html#acaa2d67e1c58af7d682dc492acb8a911">MPU9250_GYRO_XOUT_H</a>, reg_value, 6) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  173</span>}</div>
 <div class="ttc" id="ampu9250__registers_8h_html_acaa2d67e1c58af7d682dc492acb8a911"><div class="ttname"><a href="mpu9250__registers_8h.html#acaa2d67e1c58af7d682dc492acb8a911">MPU9250_GYRO_XOUT_H</a></div><div class="ttdeci">#define MPU9250_GYRO_XOUT_H</div><div class="ttdoc">Gyroscope Measurements.</div><div class="ttdef"><b>Definition:</b> mpu9250_registers.h:53</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ac8a3481692786176fb2903ba591353ea" name="ac8a3481692786176fb2903ba591353ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8a3481692786176fb2903ba591353ea">&#9670;&#160;</a></span>MPU9250_GyroReadConfig()</h2>
+<a id="acd75c07bc32cc238ead3acbcc7790f71" name="acd75c07bc32cc238ead3acbcc7790f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd75c07bc32cc238ead3acbcc7790f71">&#9670;&#160;</a></span>MPU9250_GyroReadConfig()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,23 +296,36 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a> MPU9250_GyroReadConfig </td>
           <td>(</td>
           <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>gyroConfig</em></td><td>)</td>
+          <td class="paramname"><em>pGyroConfig</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gyro Full Scale Selection. </p>
-<div class="fragment"><div class="line"><span class="lineno">  100</span>{</div>
-<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a9366177cc33f09740054e6651513ed1a">MPU9250_Reg_Read</a>(MPU9250_GYRO_CONFIG, gyroConfig) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">  103</span>}</div>
-<div class="ttc" id="ampu9250_8c_html_a9366177cc33f09740054e6651513ed1a"><div class="ttname"><a href="mpu9250_8c.html#a9366177cc33f09740054e6651513ed1a">MPU9250_Reg_Read</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t *pData)</div><div class="ttdoc">Read MPU9250 register.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:33</div></div>
+<p>Read current Gyro configuration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pGyroConfig</td><td>Pointer to buffer where configuration will be stored <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  114</span>{</div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a9366177cc33f09740054e6651513ed1a">MPU9250_Reg_Read</a>(MPU9250_GYRO_CONFIG, pGyroConfig) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  117</span>}</div>
+<div class="ttc" id="ampu9250_8c_html_a9366177cc33f09740054e6651513ed1a"><div class="ttname"><a href="mpu9250_8c.html#a9366177cc33f09740054e6651513ed1a">MPU9250_Reg_Read</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t *pData)</div><div class="ttdoc">Read MPU9250 register.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:36</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a140980b2e50cfcde94dfd05b0fc103c1" name="a140980b2e50cfcde94dfd05b0fc103c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a140980b2e50cfcde94dfd05b0fc103c1">&#9670;&#160;</a></span>MPU9250_GyroSetFullScale()</h2>
+<a id="a739c691f887347bef7cf62c2d61a6fc2" name="a739c691f887347bef7cf62c2d61a6fc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739c691f887347bef7cf62c2d61a6fc2">&#9670;&#160;</a></span>MPU9250_GyroSetFullScale()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,24 +334,36 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a> MPU9250_GyroSetFullScale </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="mpu9250_8h.html#af043cfe50ba6d37d11f5077bd0cd2dad">MPU9250_GyroConfig_FSTypeDef</a>&#160;</td>
-          <td class="paramname"><em>gyroFullScale</em></td><td>)</td>
+          <td class="paramname"><em>GyroFullScale</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set Guro Full Scale. </p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>{</div>
-<div class="line"><span class="lineno">  110</span>    uint8_t reg_value;</div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#ac8a3481692786176fb2903ba591353ea">MPU9250_GyroReadConfig</a>(&amp;reg_value) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    reg_value &amp;= ~(0b11 &lt;&lt; <a class="code hl_define" href="mpu9250__registers_8h.html#a5ef0c3c934045be054b7f929388c4d03">MPU9250_GYRO_FS_SEL_OFFSET</a>);</div>
-<div class="line"><span class="lineno">  114</span>    reg_value |= (gyroFullScale &lt;&lt; <a class="code hl_define" href="mpu9250__registers_8h.html#a5ef0c3c934045be054b7f929388c4d03">MPU9250_GYRO_FS_SEL_OFFSET</a>);</div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a7f0390a9fef5920778eca8f8b3536921">MPU9250_Reg_Write</a>(MPU9250_GYRO_CONFIG, &amp;reg_value) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">  117</span>}</div>
-<div class="ttc" id="ampu9250_8c_html_a7f0390a9fef5920778eca8f8b3536921"><div class="ttname"><a href="mpu9250_8c.html#a7f0390a9fef5920778eca8f8b3536921">MPU9250_Reg_Write</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t *pData)</div><div class="ttdoc">Write MPU9250 register.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:53</div></div>
-<div class="ttc" id="ampu9250_8c_html_ac8a3481692786176fb2903ba591353ea"><div class="ttname"><a href="mpu9250_8c.html#ac8a3481692786176fb2903ba591353ea">MPU9250_GyroReadConfig</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t *gyroConfig)</div><div class="ttdoc">Gyro Full Scale Selection.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:99</div></div>
+<p>Gyro Full Scale selection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">GyroFullScale</td><td>Gyro Full Scale to set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>{</div>
+<div class="line"><span class="lineno">  126</span>    uint8_t reg_value;</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#acd75c07bc32cc238ead3acbcc7790f71">MPU9250_GyroReadConfig</a>(&amp;reg_value) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>    reg_value &amp;= ~(0b11 &lt;&lt; <a class="code hl_define" href="mpu9250__registers_8h.html#a5ef0c3c934045be054b7f929388c4d03">MPU9250_GYRO_FS_SEL_OFFSET</a>);</div>
+<div class="line"><span class="lineno">  130</span>    reg_value |= (GyroFullScale &lt;&lt; <a class="code hl_define" href="mpu9250__registers_8h.html#a5ef0c3c934045be054b7f929388c4d03">MPU9250_GYRO_FS_SEL_OFFSET</a>);</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a7f0390a9fef5920778eca8f8b3536921">MPU9250_Reg_Write</a>(MPU9250_GYRO_CONFIG, &amp;reg_value) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  133</span>}</div>
+<div class="ttc" id="ampu9250_8c_html_a7f0390a9fef5920778eca8f8b3536921"><div class="ttname"><a href="mpu9250_8c.html#a7f0390a9fef5920778eca8f8b3536921">MPU9250_Reg_Write</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t *pData)</div><div class="ttdoc">Write MPU9250 register.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:61</div></div>
+<div class="ttc" id="ampu9250_8c_html_acd75c07bc32cc238ead3acbcc7790f71"><div class="ttname"><a href="mpu9250_8c.html#acd75c07bc32cc238ead3acbcc7790f71">MPU9250_GyroReadConfig</a></div><div class="ttdeci">MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t *pGyroConfig)</div><div class="ttdoc">Read current Gyro configuration.</div><div class="ttdef"><b>Definition:</b> mpu9250.c:113</div></div>
 <div class="ttc" id="ampu9250__registers_8h_html_a5ef0c3c934045be054b7f929388c4d03"><div class="ttname"><a href="mpu9250__registers_8h.html#a5ef0c3c934045be054b7f929388c4d03">MPU9250_GYRO_FS_SEL_OFFSET</a></div><div class="ttdeci">#define MPU9250_GYRO_FS_SEL_OFFSET</div><div class="ttdoc">Gyro Full Scale Select: 00 = +250 dps 01 = +500 dps 10 = +1000 dps 11 = +2000 dps.</div><div class="ttdef"><b>Definition:</b> mpu9250_registers.h:74</div></div>
 </div><!-- fragment -->
 </div>
@@ -339,17 +387,17 @@ Functions</h2></td></tr>
 <p>Initialize MPU9250 device. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">MPU9250</td><td>status </td></tr>
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>{</div>
-<div class="line"><span class="lineno">   89</span>    <span class="comment">/* I2C initialization */</span></div>
-<div class="line"><span class="lineno">   90</span>    hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> = <a class="code hl_enumvalue" href="mpu9250__def_8h.html#a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc">MPU9250_I2C_ADDRESS_1</a>;</div>
-<div class="line"><span class="lineno">   91</span>    hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a668dc0d23194f4fb134c8eac730e6d6f">I2C_Timeout</a> = 100;</div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="port__i2c_8c.html#a072143ab709914008679db81815da490">I2C_Init</a>() != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">   94</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>{</div>
+<div class="line"><span class="lineno">  101</span>    <span class="comment">/* I2C initialization */</span></div>
+<div class="line"><span class="lineno">  102</span>    hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> = <a class="code hl_enumvalue" href="mpu9250__def_8h.html#a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc">MPU9250_I2C_ADDRESS_1</a>;</div>
+<div class="line"><span class="lineno">  103</span>    hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a668dc0d23194f4fb134c8eac730e6d6f">I2C_Timeout</a> = 100;</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="port__i2c_8c.html#a072143ab709914008679db81815da490">I2C_Init</a>() != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  106</span>}</div>
 <div class="ttc" id="ampu9250__def_8h_html_a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc"><div class="ttname"><a href="mpu9250__def_8h.html#a83be6a9a68a3f3c5700c39676e0f728eaa4b921dfb69e2174178324c7becc96bc">MPU9250_I2C_ADDRESS_1</a></div><div class="ttdeci">@ MPU9250_I2C_ADDRESS_1</div><div class="ttdef"><b>Definition:</b> mpu9250_def.h:40</div></div>
 <div class="ttc" id="aport__i2c_8c_html_a072143ab709914008679db81815da490"><div class="ttname"><a href="port__i2c_8c.html#a072143ab709914008679db81815da490">I2C_Init</a></div><div class="ttdeci">MPU9250_StatusTypeDef I2C_Init(void)</div><div class="ttdoc">I2C init function.</div><div class="ttdef"><b>Definition:</b> port_i2c.c:30</div></div>
 <div class="ttc" id="astruct____MPU9250__HandleTypeDef_html_a668dc0d23194f4fb134c8eac730e6d6f"><div class="ttname"><a href="struct____MPU9250__HandleTypeDef.html#a668dc0d23194f4fb134c8eac730e6d6f">__MPU9250_HandleTypeDef::I2C_Timeout</a></div><div class="ttdeci">uint32_t I2C_Timeout</div><div class="ttdef"><b>Definition:</b> mpu9250_def.h:51</div></div>
@@ -371,14 +419,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (RxFlag)</div>
-<div class="line"><span class="lineno">   76</span>    {</div>
-<div class="line"><span class="lineno">   77</span>        RxFlag = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   78</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   79</span>    }</div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   81</span>}</div>
+
+<p>MPU9250 check for data ready. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">bool</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">if</span> (DataReadyFlag)</div>
+<div class="line"><span class="lineno">   88</span>    {</div>
+<div class="line"><span class="lineno">   89</span>        DataReadyFlag = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   93</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -413,10 +469,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   60</span>{</div>
-<div class="line"><span class="lineno">   61</span>    <span class="comment">/* MPU9250 non-blocking register read wrapper */</span></div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#a3a45580cd115a60a392c5f242f4ec6af">I2C_Read_DMA</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData, DataAmount);</div>
-<div class="line"><span class="lineno">   63</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
+<div class="line"><span class="lineno">   69</span>    <span class="comment">/* MPU9250 non-blocking register read wrapper */</span></div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#a3a45580cd115a60a392c5f242f4ec6af">I2C_Read_DMA</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData, DataAmount);</div>
+<div class="line"><span class="lineno">   71</span>}</div>
 <div class="ttc" id="aport__i2c_8c_html_a3a45580cd115a60a392c5f242f4ec6af"><div class="ttname"><a href="port__i2c_8c.html#a3a45580cd115a60a392c5f242f4ec6af">I2C_Read_DMA</a></div><div class="ttdeci">MPU9250_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData, uint16_t DataAmount)</div><div class="ttdoc">I2C non-blocking read through DMA.</div><div class="ttdef"><b>Definition:</b> port_i2c.c:95</div></div>
 </div><!-- fragment -->
 </div>
@@ -448,16 +504,23 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read MPU9250 register. </p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">MPU9250</td><td>status </td></tr>
+<p>Flag for data ready </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RegAddress</td><td>Address of register to read </td></tr>
+    <tr><td class="paramname">pData</td><td>Pointer to buffer where value will be stored </td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
-<div class="line"><span class="lineno">   35</span>    <span class="comment">/* MPU9250 register read wrapper */</span></div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#ae99e5a7208bf63ecd7ace58f19792adb">I2C_Reg_Read</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData);</div>
-<div class="line"><span class="lineno">   37</span>}</div>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
+<div class="line"><span class="lineno">   38</span>    <span class="comment">/* MPU9250 register read wrapper */</span></div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#ae99e5a7208bf63ecd7ace58f19792adb">I2C_Reg_Read</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData);</div>
+<div class="line"><span class="lineno">   40</span>}</div>
 <div class="ttc" id="aport__i2c_8c_html_ae99e5a7208bf63ecd7ace58f19792adb"><div class="ttname"><a href="port__i2c_8c.html#ae99e5a7208bf63ecd7ace58f19792adb">I2C_Reg_Read</a></div><div class="ttdeci">MPU9250_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData)</div><div class="ttdoc">I2C read register.</div><div class="ttdef"><b>Definition:</b> port_i2c.c:53</div></div>
 </div><!-- fragment -->
 </div>
@@ -489,16 +552,23 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Write MPU9250 register. </p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">MPU9250</td><td>status </td></tr>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RegAddress</td><td>Address of register to write </td></tr>
+    <tr><td class="paramname">pData</td><td>Pointer to buffer with value to write </td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>{</div>
-<div class="line"><span class="lineno">   55</span>    <span class="comment">/* MPU9250 register write wrapper */</span></div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#ac9f1c85d0722c267343356ee80229d67">I2C_Reg_Write</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData);</div>
-<div class="line"><span class="lineno">   57</span>}</div>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
+<div class="line"><span class="lineno">   63</span>    <span class="comment">/* MPU9250 register write wrapper */</span></div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="port__i2c_8c.html#ac9f1c85d0722c267343356ee80229d67">I2C_Reg_Write</a>((uint16_t)hmpu1.<a class="code hl_variable" href="struct____MPU9250__HandleTypeDef.html#a9f1528d6f7325c736e4ba2d73127fa5c">Address</a> &lt;&lt; 1, RegAddress, pData);</div>
+<div class="line"><span class="lineno">   65</span>}</div>
 <div class="ttc" id="aport__i2c_8c_html_ac9f1c85d0722c267343356ee80229d67"><div class="ttname"><a href="port__i2c_8c.html#ac9f1c85d0722c267343356ee80229d67">I2C_Reg_Write</a></div><div class="ttdeci">MPU9250_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData)</div><div class="ttdoc">I2C write register.</div><div class="ttdef"><b>Definition:</b> port_i2c.c:81</div></div>
 </div><!-- fragment -->
 </div>
@@ -520,9 +590,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>MPU9250 callback for data ready. </p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
-<div class="line"><span class="lineno">   70</span>    RxFlag = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   71</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
+<div class="line"><span class="lineno">   78</span>    DataReadyFlag = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   79</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -542,34 +612,34 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>MPU9250 sanity check. </p>
+<p>MPU9250 Sanity Check. </p>
 <dl class="section note"><dt>Note</dt><dd>It performs a who am I to verify the I2C slave </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">MPU9250</td><td>status </td></tr>
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  159</span>{</div>
-<div class="line"><span class="lineno">  160</span>    <span class="comment">/* Who Am I check*/</span></div>
-<div class="line"><span class="lineno">  161</span>    uint8_t reg_value;</div>
-<div class="line"><span class="lineno">  162</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a9366177cc33f09740054e6651513ed1a">MPU9250_Reg_Read</a>(<a class="code hl_define" href="mpu9250__registers_8h.html#abbeb9762be6f9443df3c57561c8c3985">MPU9250_WHO_AM_I</a>, &amp;reg_value) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  163</span>    <span class="keywordflow">if</span> (reg_value != MPU9250_WHO_AM_I_DEFAULT) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">  166</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  181</span>{</div>
+<div class="line"><span class="lineno">  182</span>    <span class="comment">/* Who Am I check*/</span></div>
+<div class="line"><span class="lineno">  183</span>    uint8_t reg_value;</div>
+<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="mpu9250_8c.html#a9366177cc33f09740054e6651513ed1a">MPU9250_Reg_Read</a>(<a class="code hl_define" href="mpu9250__registers_8h.html#abbeb9762be6f9443df3c57561c8c3985">MPU9250_WHO_AM_I</a>, &amp;reg_value) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  185</span>    <span class="keywordflow">if</span> (reg_value != MPU9250_WHO_AM_I_DEFAULT) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  188</span>}</div>
 <div class="ttc" id="ampu9250__registers_8h_html_abbeb9762be6f9443df3c57561c8c3985"><div class="ttname"><a href="mpu9250__registers_8h.html#abbeb9762be6f9443df3c57561c8c3985">MPU9250_WHO_AM_I</a></div><div class="ttdeci">#define MPU9250_WHO_AM_I</div><div class="ttdoc">This register is used to verify the identity of the device. The contents of WHO_AM_I is an 8-bit devi...</div><div class="ttdef"><b>Definition:</b> mpu9250_registers.h:65</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a001ad3eea57d81865868f0391a5f1549" name="a001ad3eea57d81865868f0391a5f1549"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a001ad3eea57d81865868f0391a5f1549">&#9670;&#160;</a></span>MPU9250_TempRead()</h2>
+<a id="a25ee5fd265c327f0886bfd470281921d" name="a25ee5fd265c327f0886bfd470281921d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ee5fd265c327f0886bfd470281921d">&#9670;&#160;</a></span>MPU9250_TempReadRaw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a> MPU9250_TempRead </td>
+          <td class="memname"><a class="el" href="mpu9250__def_8h.html#a5385d36e3dfdc7a4da6a0cc3828cd430">MPU9250_StatusTypeDef</a> MPU9250_TempReadRaw </td>
           <td>(</td>
           <td class="paramtype">uint8_t *&#160;</td>
           <td class="paramname"><em>pTemp</em></td><td>)</td>
@@ -578,11 +648,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Temperature Measurements. </p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>{</div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">if</span> (MPU9250_NonBlocking_Read(<a class="code hl_define" href="mpu9250__registers_8h.html#afa30ca80a7c6bb0a8249fa8d6dd95a0f">MPU9250_TEMP_OUT_H</a>, pTemp, 2) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
-<div class="line"><span class="lineno">  141</span>}</div>
+<p>Temperature Measurement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pTemp</td><td>Pointer to buffer where temperature measurement will be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">MPU9250_StatusTypeDef</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  160</span>{</div>
+<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">if</span> (MPU9250_NonBlocking_Read(<a class="code hl_define" href="mpu9250__registers_8h.html#afa30ca80a7c6bb0a8249fa8d6dd95a0f">MPU9250_TEMP_OUT_H</a>, pTemp, 2) != MPU9250_OK) <span class="keywordflow">return</span> MPU9250_ERROR;</div>
+<div class="line"><span class="lineno">  162</span>    <span class="keywordflow">return</span> MPU9250_OK;</div>
+<div class="line"><span class="lineno">  163</span>}</div>
 <div class="ttc" id="ampu9250__registers_8h_html_afa30ca80a7c6bb0a8249fa8d6dd95a0f"><div class="ttname"><a href="mpu9250__registers_8h.html#afa30ca80a7c6bb0a8249fa8d6dd95a0f">MPU9250_TEMP_OUT_H</a></div><div class="ttdeci">#define MPU9250_TEMP_OUT_H</div><div class="ttdoc">Temperature Measurements.</div><div class="ttdef"><b>Definition:</b> mpu9250_registers.h:47</div></div>
 </div><!-- fragment -->
 </div>

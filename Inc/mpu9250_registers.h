@@ -75,10 +75,10 @@ extern "C" {
 
 /**
  * @brief Accel Full Scale Select:
- * 00 = \pm 2g
- * 01 = \pm 4g
- * 10 = \pm 8g
- * 11 = \pm 16g
+ * 00 = +-2g
+ * 01 = +- 4g
+ * 10 = +- 8g
+ * 11 = +- 16g
 */
 #define MPU9250_ACCEL_FS_SEL_OFFSET   3
 

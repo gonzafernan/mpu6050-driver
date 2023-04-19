@@ -18,10 +18,11 @@
 extern "C" {
 #endif
 
+/* Includes -------------------------------------------------------------------*/
 #include "mpu9250_def.h"
-
 #include <stdbool.h>
 
+/* Exported types ------------------------------------------------------------*/
 /**
  * @brief MPU9250 Gyro Full Scale Select
 */
@@ -34,14 +35,14 @@ typedef enum
 
 } MPU9250_GyroConfig_FSTypeDef;
 
-
+/* Exported functions ---------------------------------------------------------*/
 MPU9250_StatusTypeDef MPU9250_Init(void);
 MPU9250_StatusTypeDef MPU9250_SanityCheck(void);
-MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t* gyroConfig);
-MPU9250_StatusTypeDef MPU9250_GyroSetFullScale(MPU9250_GyroConfig_FSTypeDef gyroFullScale);
-MPU9250_StatusTypeDef MPU9250_AccelReadRaw(uint16_t* AccelX, uint16_t* AccelY, uint16_t* AccelZ);
-MPU9250_StatusTypeDef MPU9250_GyroRead(void);
-MPU9250_StatusTypeDef MPU9250_TempRead(uint8_t* pTemp);
+MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t* pGyroConfig);
+MPU9250_StatusTypeDef MPU9250_GyroSetFullScale(MPU9250_GyroConfig_FSTypeDef GyroFullScale);
+MPU9250_StatusTypeDef MPU9250_GyroReadRaw(uint16_t* pGyroX, uint16_t* pGyroY, uint16_t* pGyroZ);
+MPU9250_StatusTypeDef MPU9250_AccelReadRaw(uint16_t* pAccelX, uint16_t* pAccelY, uint16_t* pAccelZ);
+MPU9250_StatusTypeDef MPU9250_TempReadRaw(uint8_t* pTemp);
 void MPU9250_RxCallback(void);
 bool MPU9250_IsDataReady(void);
 
