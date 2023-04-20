@@ -65,6 +65,11 @@ MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t* pData)
     return I2C_Reg_Write((uint16_t)hmpu1.Address << 1, RegAddress, pData);
 }
 
+/**
+ * @brief   MPU-9250 Non-blocking burst read
+ * @param   RegAddress: Address of first register to read
+ * @param   pData: Pointer to buffer where received data will be stored
+*/
 MPU9250_StatusTypeDef MPU9250_NonBlocking_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
 {
     /* MPU9250 non-blocking register read wrapper */
@@ -198,6 +203,32 @@ MPU9250_StatusTypeDef MPU9250_AccelReadRaw(uint16_t* pAccelX, uint16_t* pAccelY,
 }
 
 /**
+ * @brief   Fetch Accelerometer Measurements and load it into buffer
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_AccelFetch(void)
+{
+    if (MPU9250_NonBlocking_Read(MPU9250_ACCEL_XOUT_H, RxBuffer, 6) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief   Raw Accelerometer Measurements from buffer
+ * @param   pAccelX: Pointer to buffer where Accel X-axis measurement will be stored
+ * @param   pAccelY: Pointer to buffer where Accel Y-axis measurement will be stored
+ * @param   pAccelZ: Pointer to buffer where Accel Z-axis measurement will be stored
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_AccelReadFromBuffer(uint16_t* pAccelX, uint16_t* pAccelY, uint16_t* pAccelZ)
+{
+    *pAccelX = (RxBuffer[0] << 8) | RxBuffer[1];
+    *pAccelY = (RxBuffer[2] << 8) | RxBuffer[3];
+    *pAccelZ = (RxBuffer[4] << 8) | RxBuffer[5];
+
+    return MPU9250_OK;
+}
+
+/**
  * @brief   Temperature Measurement
  * @param   pTemp: Pointer to buffer where temperature measurement will be stored
  * @retval  MPU9250_StatusTypeDef
@@ -208,6 +239,27 @@ MPU9250_StatusTypeDef MPU9250_TempReadRaw(uint8_t* pTemp)
     return MPU9250_OK;
 }
 
+/**
+ * @brief   Fetch Temperature Measurements and load it into buffer
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_TempFetch(void)
+{
+    if (MPU9250_NonBlocking_Read(MPU9250_GYRO_XOUT_H, RxBuffer, 6) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief   Raw Temperature Measurements from buffer
+ * @param   pTemp: Pointer to buffer where Temperature measurement will be stored
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_TempReadFromBuffer(uint16_t* pTemp)
+{
+    *pTemp = (RxBuffer[0] << 8) | RxBuffer[1];
+
+    return MPU9250_OK;
+}
 
 
 /**
