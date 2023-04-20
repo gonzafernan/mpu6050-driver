@@ -35,6 +35,19 @@ typedef enum
 
 } MPU9250_GyroConfig_FSTypeDef;
 
+/**
+ * @brief MPU9250 Accel Full Scale Select
+*/
+typedef enum
+{
+    MPU9250_ACCEL_CONFIG_2G     = 0b00U,
+    MPU9250_ACCEL_CONFIG_4G     = 0b01U,
+    MPU9250_ACCEL_CONFIG_8G     = 0b10U,
+    MPU9250_ACCEL_CONFIG_16G    = 0b11U,
+
+} MPU9250_AccelConfig_FSTypeDef;
+
+
 /* Exported functions ---------------------------------------------------------*/
 MPU9250_StatusTypeDef MPU9250_Init(void);
 MPU9250_StatusTypeDef MPU9250_SanityCheck(void);

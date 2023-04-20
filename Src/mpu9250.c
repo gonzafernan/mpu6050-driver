@@ -34,7 +34,7 @@ static uint8_t RxBuffer[6];                 /*! Buffer with data from non-blocki
  * @param   pData: Pointer to buffer where value will be stored
  * @retval  MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t* pData)
+static MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t* pData)
 {
     /* MPU9250 register read wrapper */
     return I2C_Reg_Read((uint16_t)hmpu1.Address << 1, RegAddress, pData);
@@ -47,7 +47,7 @@ MPU9250_StatusTypeDef MPU9250_Reg_Read(uint8_t RegAddress, uint8_t* pData)
  * @param   DataAmount: Amount of data to read
  * @retval  MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
+static MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
 {
     /* MPU9250 register read wrapper */
     return I2C_Burst_Read((uint16_t)hmpu1.Address << 1, RegAddress, pData, DataAmount);
@@ -59,7 +59,7 @@ MPU9250_StatusTypeDef MPU9250_Burst_Read(uint8_t RegAddress, uint8_t* pData, uin
  * @param   pData: Pointer to buffer with value to write
  * @retval  MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t* pData)
+static MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t* pData)
 {
     /* MPU9250 register write wrapper */
     return I2C_Reg_Write((uint16_t)hmpu1.Address << 1, RegAddress, pData);
@@ -70,7 +70,7 @@ MPU9250_StatusTypeDef MPU9250_Reg_Write(uint8_t RegAddress, uint8_t* pData)
  * @param   RegAddress: Address of first register to read
  * @param   pData: Pointer to buffer where received data will be stored
 */
-MPU9250_StatusTypeDef MPU9250_NonBlocking_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
+static MPU9250_StatusTypeDef MPU9250_NonBlocking_Read(uint8_t RegAddress, uint8_t* pData, uint16_t DataAmount)
 {
     /* MPU9250 non-blocking register read wrapper */
     return I2C_Read_DMA((uint16_t)hmpu1.Address << 1, RegAddress, pData, DataAmount);
@@ -123,6 +123,17 @@ MPU9250_StatusTypeDef MPU9250_GyroReadConfig(uint8_t* pGyroConfig)
 }
 
 /**
+ * @brief   Read current Accel configuration
+ * @param   pAccelConfig: Pointer to buffer where configuration will be stored   
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_AccelReadConfig(uint8_t* pAccelConfig)
+{
+    if (MPU9250_Reg_Read(MPU9250_ACCEL_CONFIG, pAccelConfig) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
  * @brief   Gyro Full Scale selection
  * @param   GyroFullScale: Gyro Full Scale to set
  * @retval  MPU9250_StatusTypeDef
@@ -135,6 +146,22 @@ MPU9250_StatusTypeDef MPU9250_GyroSetFullScale(MPU9250_GyroConfig_FSTypeDef Gyro
     reg_value &= ~(0b11 << MPU9250_GYRO_FS_SEL_OFFSET);
     reg_value |= (GyroFullScale << MPU9250_GYRO_FS_SEL_OFFSET);
     if (MPU9250_Reg_Write(MPU9250_GYRO_CONFIG, &reg_value) != MPU9250_OK) return MPU9250_ERROR;
+    return MPU9250_OK;
+}
+
+/**
+ * @brief   Accel Full Scale selection
+ * @param   AccelFullScale: Accel Full Scale to set
+ * @retval  MPU9250_StatusTypeDef
+*/
+MPU9250_StatusTypeDef MPU9250_AccelSetFullScale(MPU9250_AccelConfig_FSTypeDef AccelFullScale)
+{
+    uint8_t reg_value;
+    if (MPU9250_AccelReadConfig(&reg_value) != MPU9250_OK) return MPU9250_ERROR;
+
+    reg_value &= ~(0b11 << MPU9250_ACCEL_FS_SEL_OFFSET);
+    reg_value |= (AccelFullScale << MPU9250_ACCEL_FS_SEL_OFFSET);
+    if (MPU9250_Reg_Write(MPU9250_ACCEL_CONFIG, &reg_value) != MPU9250_OK) return MPU9250_ERROR;
     return MPU9250_OK;
 }
 
