@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['i2c_5fburst_5fread_0',['I2C_Burst_Read',['../port__i2c_8c.html#ab4e8b3e58833fb933b5d413296013555',1,'I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData, uint16_t DataAmont):&#160;port_i2c.c'],['../port__i2c_8h.html#ab4e8b3e58833fb933b5d413296013555',1,'I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData, uint16_t DataAmont):&#160;port_i2c.c']]],
-  ['i2c_5finit_1',['I2C_Init',['../port__i2c_8c.html#a072143ab709914008679db81815da490',1,'I2C_Init(void):&#160;port_i2c.c'],['../port__i2c_8h.html#a072143ab709914008679db81815da490',1,'I2C_Init(void):&#160;port_i2c.c']]],
-  ['i2c_5fread_5fdma_2',['I2C_Read_DMA',['../port__i2c_8c.html#a3a45580cd115a60a392c5f242f4ec6af',1,'I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData, uint16_t DataAmount):&#160;port_i2c.c'],['../port__i2c_8h.html#a3a45580cd115a60a392c5f242f4ec6af',1,'I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData, uint16_t DataAmount):&#160;port_i2c.c']]],
-  ['i2c_5freg_5fread_3',['I2C_Reg_Read',['../port__i2c_8c.html#ae99e5a7208bf63ecd7ace58f19792adb',1,'I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData):&#160;port_i2c.c'],['../port__i2c_8h.html#ae99e5a7208bf63ecd7ace58f19792adb',1,'I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData):&#160;port_i2c.c']]],
-  ['i2c_5freg_5fwrite_4',['I2C_Reg_Write',['../port__i2c_8c.html#ac9f1c85d0722c267343356ee80229d67',1,'I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData):&#160;port_i2c.c'],['../port__i2c_8h.html#ac9f1c85d0722c267343356ee80229d67',1,'I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t *pData):&#160;port_i2c.c']]],
-  ['i2c_5ftimeout_5',['I2C_Timeout',['../struct____MPU9250__HandleTypeDef.html#a668dc0d23194f4fb134c8eac730e6d6f',1,'__MPU9250_HandleTypeDef']]]
-];
