@@ -12,3 +12,5 @@ Author: Gonzalo Gabriel Fernandez
 
 ## Port
 Currently, the only microcontroller supported is the STM32F103C8T6 (Blue Pill board)
+
+The non-blocking read is supported via DMA.
