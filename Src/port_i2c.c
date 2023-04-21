@@ -43,12 +43,12 @@ MPU9250_StatusTypeDef I2C_Init(void)
 
     /* DMA initialization */
     /* DMA controller clock enable */
-    __HAL_RCC_DMA1_CLK_ENABLE();
+    //__HAL_RCC_DMA1_CLK_ENABLE();
 
     /* DMA interrupt init */
     /* DMA1_Channel7_IRQn interrupt configuration */
-    HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
+    //HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 0, 0);
+    //HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
 
     return MPU9250_OK;
 }

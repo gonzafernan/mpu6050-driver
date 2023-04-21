@@ -1,6 +1,6 @@
 # MPU-9250 Driver
 
-Author: Gonzalo Gabrier Fernandez
+Author: Gonzalo Gabriel Fernandez
 
 ## Features
 - Device initialization

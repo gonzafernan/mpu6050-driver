@@ -260,9 +260,13 @@ MPU9250_StatusTypeDef MPU9250_AccelReadFromBuffer(uint16_t* pAccelX, uint16_t* p
  * @param   pTemp: Pointer to buffer where temperature measurement will be stored
  * @retval  MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef MPU9250_TempReadRaw(uint8_t* pTemp)
+MPU9250_StatusTypeDef MPU9250_TempReadRaw(uint16_t* pTemp)
 {
-    if (MPU9250_Burst_Read(MPU9250_TEMP_OUT_H, pTemp, 2) != MPU9250_OK) return MPU9250_ERROR;
+    uint8_t reg_value[6];
+    if (MPU9250_Burst_Read(MPU9250_TEMP_OUT_H, reg_value, 2) != MPU9250_OK) return MPU9250_ERROR;
+
+    *pTemp = (reg_value[0] << 8) | reg_value[1];
+
     return MPU9250_OK;
 }
 
