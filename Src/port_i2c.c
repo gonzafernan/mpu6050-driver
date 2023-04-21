@@ -40,6 +40,16 @@ MPU9250_StatusTypeDef I2C_Init(void)
     hi2c.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
     if (HAL_I2C_Init(&hi2c) != HAL_OK) return MPU9250_ERROR;
+
+    /* DMA initialization */
+    /* DMA controller clock enable */
+    __HAL_RCC_DMA1_CLK_ENABLE();
+
+    /* DMA interrupt init */
+    /* DMA1_Channel7_IRQn interrupt configuration */
+    HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
+
     return MPU9250_OK;
 }
 
@@ -96,6 +106,14 @@ MPU9250_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, ui
 {
     if (HAL_I2C_Mem_Read_DMA(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, DataAmount) != HAL_OK) return MPU9250_ERROR;
     return MPU9250_OK;
+}
+
+/**
+ * @brief I2C Rx completed callback
+*/
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef* hi2c)
+{
+    MPU9250_RxCallback();
 }
 
 void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
@@ -156,9 +174,4 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
         /* I2C1 DMA DeInit */
         HAL_DMA_DeInit(i2cHandle->hdmarx);
     }
-}
-
-void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef* hi2c)
-{
-    MPU9250_RxCallback();
 }
