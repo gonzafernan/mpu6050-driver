@@ -54,6 +54,8 @@ typedef enum
 /* Exported functions ---------------------------------------------------------*/
 MPU6050_StatusTypeDef MPU6050_Init(void);
 MPU6050_StatusTypeDef MPU6050_SanityCheck(void);
+MPU6050_StatusTypeDef MPU6050_ReadPwrMgmt(uint8_t* pPwrMgmt);
+MPU6050_StatusTypeDef MPU6050_ResetPwrMgmt(void);
 MPU6050_StatusTypeDef MPU6050_GyroReadConfig(uint8_t* pGyroConfig);
 MPU6050_StatusTypeDef MPU6050_AccelReadConfig(uint8_t* pAccelConfig);
 MPU6050_StatusTypeDef MPU6050_GyroSetFullScale(MPU6050_GyroConfig_FSTypeDef GyroFullScale);

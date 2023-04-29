@@ -58,6 +58,9 @@ extern "C" {
 
 #define MPU6050_USER_CTRL           0x6AU   /*!< MPU6050 User Control */
 
+#define MPU6050_PWR_MGMT_1          0x6BU   /*!< MPU6050 Power Management 1 */
+#define MPU6050_PWR_MGMT_2          0x6CU   /*!< MPU6050 Power Management 2 */
+
 /**
  * @brief This register is used to verify the identity of the device.
  * The contents of WHO_AM_I is an 8-bit device ID.

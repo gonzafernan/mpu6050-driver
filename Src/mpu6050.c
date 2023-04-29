@@ -111,6 +111,28 @@ MPU6050_StatusTypeDef MPU6050_Init(void)
 }
 
 /**
+ * @brief   Read MPU6050 Power Management 1
+ * @param   pPwrMgmt: Pointer to buffer where configuration will be stored
+*/
+MPU6050_StatusTypeDef MPU6050_ReadPwrMgmt(uint8_t* pPwrMgmt)
+{
+    assert(pPwrMgmt);
+    if (MPU6050_Reg_Read(MPU6050_PWR_MGMT_1, &pPwrMgmt[0]) != MPU6050_OK) return MPU6050_ERROR;
+    if (MPU6050_Reg_Read(MPU6050_PWR_MGMT_2, &pPwrMgmt[1]) != MPU6050_OK) return MPU6050_ERROR;
+    return MPU6050_OK;
+}
+
+/**
+ * @brief   Read MPU6050 Reset Power Management 1
+*/
+MPU6050_StatusTypeDef MPU6050_ResetPwrMgmt(void)
+{
+    uint8_t reg_value = 0x00;
+    if (MPU6050_Reg_Write(MPU6050_PWR_MGMT_1, &reg_value) != MPU6050_OK) return MPU6050_ERROR;
+    return MPU6050_OK;
+}
+
+/**
  * @brief   Read current Gyro configuration
  * @param   pGyroConfig: Pointer to buffer where configuration will be stored   
  * @retval  MPU6050_StatusTypeDef
