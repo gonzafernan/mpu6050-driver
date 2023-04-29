@@ -2,11 +2,11 @@
   ******************************************************************************
   * @file           : port_i2c.h
   * @author         : Gonzalo Gabriel Fernandez
-  * @brief          : MPU9250 Driver I2C port header
+  * @brief          : MPU6050 Driver I2C port header
   ******************************************************************************
   * @attention
   *
-  * MPU9250 Driver I2C port header, hardware independant.
+  * MPU6050 Driver I2C port header, hardware independant.
   *
   ******************************************************************************
   */
@@ -19,7 +19,7 @@ extern "C" {
 #endif
 
 /* Includes -------------------------------------------------------------------*/
-#include "mpu9250_def.h"
+#include "mpu6050_def.h"
 #include <stdint.h>
 
 /* Defines --------------------------------------------------------------------*/
@@ -27,11 +27,11 @@ extern "C" {
 #define I2C_WRITE_TIMEOUT 100
 
 /* Exported functions ---------------------------------------------------------*/
-MPU9250_StatusTypeDef I2C_Init(void);
-MPU9250_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData);
-MPU9250_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont);
-MPU9250_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData);
-MPU9250_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t*pData, uint16_t DataAmount);
+MPU6050_StatusTypeDef I2C_Init(void);
+MPU6050_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData);
+MPU6050_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont);
+MPU6050_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData);
+MPU6050_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t*pData, uint16_t DataAmount);
 
 #ifdef __cplusplus
 }

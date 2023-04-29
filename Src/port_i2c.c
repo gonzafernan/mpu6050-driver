@@ -2,11 +2,11 @@
   ******************************************************************************
   * @file           : port_i2c.c
   * @author         : Gonzalo Gabriel Fernandez
-  * @brief          : MPU9250 Driver I2C port for STM32F1XX
+  * @brief          : MPU6050 Driver I2C port for STM32F1XX
   ******************************************************************************
   * @attention
   *
-  * MPU9250 Driver I2C port for STM32F1XX.
+  * MPU6050 Driver I2C port for STM32F1XX.
   * Tested on STM32F103C8T6.
   *
   ******************************************************************************
@@ -14,7 +14,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "port_i2c.h"
-#include "mpu9250.h"
+#include "mpu6050.h"
 #include "stm32f1xx_hal.h"
 #include <assert.h>
 
@@ -27,7 +27,7 @@ DMA_HandleTypeDef hdma_i2c1_rx;
  * @brief I2C init function
  * @retval MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef I2C_Init(void)
+MPU6050_StatusTypeDef I2C_Init(void)
 {
     hi2c.Instance = I2C1;
     hi2c.Init.ClockSpeed = 400000;
@@ -39,7 +39,7 @@ MPU9250_StatusTypeDef I2C_Init(void)
     hi2c.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
     hi2c.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 
-    if (HAL_I2C_Init(&hi2c) != HAL_OK) return MPU9250_ERROR;
+    if (HAL_I2C_Init(&hi2c) != HAL_OK) return MPU6050_ERROR;
 
     /* DMA initialization */
     /* DMA controller clock enable */
@@ -50,7 +50,7 @@ MPU9250_StatusTypeDef I2C_Init(void)
     //HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 0, 0);
     //HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
 
-    return MPU9250_OK;
+    return MPU6050_OK;
 }
 
 /**
@@ -60,10 +60,10 @@ MPU9250_StatusTypeDef I2C_Init(void)
  * @param pData: Pointer to buffer where the register value will be stored
  * @retval MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData)
+MPU6050_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData)
 {
-    if (HAL_I2C_Mem_Read(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t), I2C_READ_TIMEOUT) != HAL_OK) return MPU9250_ERROR;
-    return MPU9250_OK;
+    if (HAL_I2C_Mem_Read(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t), I2C_READ_TIMEOUT) != HAL_OK) return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -75,10 +75,10 @@ MPU9250_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, ui
  * @param DataAmount: Amount of data to read
  * @retval MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont)
+MPU6050_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont)
 {
-    if (HAL_I2C_Mem_Read(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t)*DataAmont, I2C_READ_TIMEOUT) != HAL_OK) return MPU9250_ERROR;
-    return MPU9250_OK;
+    if (HAL_I2C_Mem_Read(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t)*DataAmont, I2C_READ_TIMEOUT) != HAL_OK) return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -88,10 +88,10 @@ MPU9250_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, 
  * @param pData: Pointer to buffer with value to write
  * @retval MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData)
+MPU6050_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData)
 {
-    if (HAL_I2C_Mem_Write(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t), I2C_WRITE_TIMEOUT) != HAL_OK) return MPU9250_ERROR;
-    return MPU9250_OK;
+    if (HAL_I2C_Mem_Write(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, sizeof(uint8_t), I2C_WRITE_TIMEOUT) != HAL_OK) return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -102,10 +102,10 @@ MPU9250_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, u
  * @param DataAmount: Amount of data to write
  * @retval MPU9250_StatusTypeDef
 */
-MPU9250_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t*pData, uint16_t DataAmount)
+MPU6050_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t*pData, uint16_t DataAmount)
 {
-    if (HAL_I2C_Mem_Read_DMA(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, DataAmount) != HAL_OK) return MPU9250_ERROR;
-    return MPU9250_OK;
+    if (HAL_I2C_Mem_Read_DMA(&hi2c, SlaveAddress, RegAddress, sizeof(uint8_t), pData, DataAmount) != HAL_OK) return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -113,7 +113,7 @@ MPU9250_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, ui
 */
 void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef* hi2c)
 {
-    MPU9250_RxCallback();
+    MPU6050_RxCallback();
 }
 
 void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
