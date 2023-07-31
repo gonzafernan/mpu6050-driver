@@ -88,3 +88,11 @@ mpu6050_status_t i2c_read_dma(uint16_t slave_address, uint8_t reg_address, uint8
     if (HAL_I2C_Mem_Read_DMA(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata, data_amount) != HAL_OK) return MPU6050_ERROR;
     return MPU6050_OK;
 }
+
+/**
+ * @brief I2C Rx completed callback
+*/
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef* hi2c)
+{
+    mpu6050_rxcallback();
+}
