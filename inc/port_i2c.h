@@ -18,20 +18,18 @@
 extern "C" {
 #endif
 
-/* Includes -------------------------------------------------------------------*/
-#include "mpu6050_def.h"
 #include <stdint.h>
 
-/* Defines --------------------------------------------------------------------*/
+#include "mpu6050_def.h"
+
 #define I2C_READ_TIMEOUT  100
 #define I2C_WRITE_TIMEOUT 100
 
-/* Exported functions ---------------------------------------------------------*/
-MPU6050_StatusTypeDef I2C_Init(void);
-MPU6050_StatusTypeDef I2C_Reg_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData);
-MPU6050_StatusTypeDef I2C_Burst_Read(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData, uint16_t DataAmont);
-MPU6050_StatusTypeDef I2C_Reg_Write(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t* pData);
-MPU6050_StatusTypeDef I2C_Read_DMA(uint16_t SlaveAddress, uint8_t RegAddress, uint8_t*pData, uint16_t DataAmount);
+mpu6050_status_t i2c_init(void);
+mpu6050_status_t i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8_t* pdata);
+mpu6050_status_t i2c_burst_read(uint16_t slave_address, uint8_t reg_address, uint8_t* pdata, uint16_t data_amont);
+mpu6050_status_t i2c_reg_write(uint16_t slave_address, uint8_t reg_address, uint8_t* pdata);
+mpu6050_status_t i2c_read_dma(uint16_t slave_address, uint8_t reg_address, uint8_t*pdata, uint16_t data_amount);
 
 #ifdef __cplusplus
 }

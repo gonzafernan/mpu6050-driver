@@ -18,10 +18,8 @@
 extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 
-/* Exported types ------------------------------------------------------------*/
 /**
  * @brief MPU6050 Status structure definition
 */
@@ -30,7 +28,7 @@ typedef enum
     MPU6050_OK      = 0x00U,
     MPU6050_ERROR   = 0x01U
 
-} MPU6050_StatusTypeDef;
+} mpu6050_status_t;
 
 /**
  * @brief   MPU6050 I2C slave address
@@ -42,17 +40,17 @@ typedef enum
     MPU6050_I2C_ADDRESS_1   = 0x68U,    /*!< I2C adress without AD0 */
     MPU6050_I2C_ADDRESS_2   = 0x69U,    /*!< I2C adress with AD0    */
 
-} MPU6050_I2C_AddressTypeDef;
+} mpu6050_i2c_address_t;
 
 /**
  * @brief MPU6050 handle structure definition
 */
-typedef struct __MPU6050_HandleTypeDef
+typedef struct
 {
-    MPU6050_I2C_AddressTypeDef  Address;        /*!< I2C slave address  */
-    uint32_t                    I2C_Timeout;    /*!< I2C timeout        */
+    mpu6050_i2c_address_t   address;        /*!< I2C slave address  */
+    uint32_t                i2c_timeout;    /*!< I2C timeout        */
 
-} MPU6050_HandleTypeDef;
+} mpu6050_t;
 
 #ifdef __cplusplus
 }
