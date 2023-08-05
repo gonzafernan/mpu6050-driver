@@ -1,4 +1,4 @@
-# MPU-9250 Driver
+# MPU-6050 Driver
 
 Author: Gonzalo Gabriel Fernandez
 
@@ -11,6 +11,8 @@ Author: Gonzalo Gabriel Fernandez
 - Non-blocking read of raw Gyroscope, Accelerometer, and Temperature measurements
 
 ## Port
-Currently, the only microcontroller supported is the STM32F103C8T6 (Blue Pill board)
+Currently, the microcontroller families supported are:
+- STM32F103C8T6 (Blue Pill board) (STM32F1XX)
+- STM32F429ZI (STM32F4XX)
 
 The non-blocking read is supported via DMA.
