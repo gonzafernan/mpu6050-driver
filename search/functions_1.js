@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['i2c_5fburst_5fread_0',['i2c_burst_read',['../port__i2c_8c.html#a2d2732f7e2ec5ba719bbaca04d688927',1,'i2c_burst_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata, uint16_t data_amont):&#160;port_i2c.c'],['../port__i2c_8h.html#a2d2732f7e2ec5ba719bbaca04d688927',1,'i2c_burst_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata, uint16_t data_amont):&#160;port_i2c.c']]],
+  ['i2c_5finit_1',['i2c_init',['../port__i2c_8c.html#aa3ff30b17696363604cf8edf30abe94e',1,'i2c_init(void):&#160;port_i2c.c'],['../port__i2c_8h.html#aa3ff30b17696363604cf8edf30abe94e',1,'i2c_init(void):&#160;port_i2c.c']]],
+  ['i2c_5fread_5fdma_2',['i2c_read_dma',['../port__i2c_8c.html#a4fb6311d1b69077105a520e7ef80fe17',1,'i2c_read_dma(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata, uint16_t data_amount):&#160;port_i2c.c'],['../port__i2c_8h.html#a4fb6311d1b69077105a520e7ef80fe17',1,'i2c_read_dma(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata, uint16_t data_amount):&#160;port_i2c.c']]],
+  ['i2c_5freg_5fread_3',['i2c_reg_read',['../port__i2c_8c.html#a37f808a18e3aee0b6ca25aac14fbec47',1,'i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata):&#160;port_i2c.c'],['../port__i2c_8h.html#a37f808a18e3aee0b6ca25aac14fbec47',1,'i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata):&#160;port_i2c.c']]],
+  ['i2c_5freg_5fwrite_4',['i2c_reg_write',['../port__i2c_8c.html#a6e5758f37a29512f4891cb312f43face',1,'i2c_reg_write(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata):&#160;port_i2c.c'],['../port__i2c_8h.html#a6e5758f37a29512f4891cb312f43face',1,'i2c_reg_write(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata):&#160;port_i2c.c']]]
+];
