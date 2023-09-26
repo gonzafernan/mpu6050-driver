@@ -24,8 +24,8 @@ extern "C" {
  * @brief MPU6050 Status structure definition
  */
 typedef enum {
-  MPU6050_OK = 0x00U,
-  MPU6050_ERROR = 0x01U
+    MPU6050_OK = 0x00U,
+    MPU6050_ERROR = 0x01U
 
 } mpu6050_status_t;
 
@@ -35,8 +35,8 @@ typedef enum {
  * The LSB bit of the 7 bit address is determined by the logic level on pin AD0.
  */
 typedef enum {
-  MPU6050_I2C_ADDRESS_1 = 0x68U, /*!< I2C adress without AD0 */
-  MPU6050_I2C_ADDRESS_2 = 0x69U, /*!< I2C adress with AD0    */
+    MPU6050_I2C_ADDRESS_1 = 0x68U, /*!< I2C adress without AD0 */
+    MPU6050_I2C_ADDRESS_2 = 0x69U, /*!< I2C adress with AD0    */
 
 } mpu6050_i2c_address_t;
 
@@ -44,8 +44,8 @@ typedef enum {
  * @brief MPU6050 handle structure definition
  */
 typedef struct {
-  mpu6050_i2c_address_t address; /*!< I2C slave address  */
-  uint32_t i2c_timeout;          /*!< I2C timeout        */
+    mpu6050_i2c_address_t address; /*!< I2C slave address  */
+    uint32_t i2c_timeout;          /*!< I2C timeout        */
 
 } mpu6050_t;
 

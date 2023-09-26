@@ -39,10 +39,10 @@ mpu6050_status_t i2c_init(void) { return MPU6050_OK; }
  * @retval mpu6050_status_t
  */
 mpu6050_status_t i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata) {
-  if (HAL_I2C_Mem_Read(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata, sizeof(uint8_t),
-                       I2C_READ_TIMEOUT) != HAL_OK)
-    return MPU6050_ERROR;
-  return MPU6050_OK;
+    if (HAL_I2C_Mem_Read(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
+                         sizeof(uint8_t), I2C_READ_TIMEOUT) != HAL_OK)
+        return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -56,10 +56,10 @@ mpu6050_status_t i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8
  */
 mpu6050_status_t i2c_burst_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata,
                                 uint16_t data_amont) {
-  if (HAL_I2C_Mem_Read(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
-                       sizeof(uint8_t) * data_amont, I2C_READ_TIMEOUT) != HAL_OK)
-    return MPU6050_ERROR;
-  return MPU6050_OK;
+    if (HAL_I2C_Mem_Read(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
+                         sizeof(uint8_t) * data_amont, I2C_READ_TIMEOUT) != HAL_OK)
+        return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -70,10 +70,10 @@ mpu6050_status_t i2c_burst_read(uint16_t slave_address, uint8_t reg_address, uin
  * @retval mpu6050_status_t
  */
 mpu6050_status_t i2c_reg_write(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata) {
-  if (HAL_I2C_Mem_Write(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata, sizeof(uint8_t),
-                        I2C_WRITE_TIMEOUT) != HAL_OK)
-    return MPU6050_ERROR;
-  return MPU6050_OK;
+    if (HAL_I2C_Mem_Write(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
+                          sizeof(uint8_t), I2C_WRITE_TIMEOUT) != HAL_OK)
+        return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
@@ -86,10 +86,10 @@ mpu6050_status_t i2c_reg_write(uint16_t slave_address, uint8_t reg_address, uint
  */
 mpu6050_status_t i2c_read_dma(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata,
                               uint16_t data_amount) {
-  if (HAL_I2C_Mem_Read_DMA(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
-                           data_amount) != HAL_OK)
-    return MPU6050_ERROR;
-  return MPU6050_OK;
+    if (HAL_I2C_Mem_Read_DMA(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
+                             data_amount) != HAL_OK)
+        return MPU6050_ERROR;
+    return MPU6050_OK;
 }
 
 /**
