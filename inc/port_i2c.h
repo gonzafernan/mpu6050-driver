@@ -25,7 +25,7 @@ extern "C" {
 #define I2C_READ_TIMEOUT 100
 #define I2C_WRITE_TIMEOUT 100
 
-mpu6050_status_t i2c_init(void);
+mpu6050_status_t i2c_init(void *hi2c);
 mpu6050_status_t i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata);
 mpu6050_status_t i2c_burst_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata,
                                 uint16_t data_amont);

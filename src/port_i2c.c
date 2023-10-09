@@ -23,13 +23,11 @@
 #include "mpu6050.h"
 #include "port_i2c.h"
 
-extern I2C_HandleTypeDef hi2c1;
-
 /**
  * @brief I2C init function
  * @retval mpu6050_status_t
  */
-mpu6050_status_t i2c_init(void) { return MPU6050_OK; }
+mpu6050_status_t i2c_init(void *hi2c) { return MPU6050_OK; }
 
 /**
  * @brief I2C read register
@@ -38,9 +36,10 @@ mpu6050_status_t i2c_init(void) { return MPU6050_OK; }
  * @param pdata: Pointer to buffer where the register value will be stored
  * @retval mpu6050_status_t
  */
-mpu6050_status_t i2c_reg_read(uint16_t slave_address, uint8_t reg_address, uint8_t *pdata) {
-    if (HAL_I2C_Mem_Read(&hi2c1, slave_address, reg_address, sizeof(uint8_t), pdata,
-                         sizeof(uint8_t), I2C_READ_TIMEOUT) != HAL_OK)
+mpu6050_status_t i2c_reg_read(void *i2c_handle, uint16_t slave_address, uint8_t reg_address,
+                              uint8_t *pdata) {
+    if (HAL_I2C_Mem_Read((I2c_HandleTypeDef)i2c_handle, slave_address, reg_address, sizeof(uint8_t),
+                         pdata, sizeof(uint8_t), I2C_READ_TIMEOUT) != HAL_OK)
         return MPU6050_ERROR;
     return MPU6050_OK;
 }

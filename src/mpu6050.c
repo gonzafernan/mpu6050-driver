@@ -24,7 +24,7 @@ static uint8_t rxbuffer[6];          /*! Buffer with data from non-blocking read
 /**
  * @brief   MPU6050 user-defined error callback
  * @param   hmpu: MPU6050 handle
-*/
+ */
 // __weak void mpu6050_error_callback(mpu6050_t* hmpu)
 // {
 //     /**
@@ -74,8 +74,8 @@ static mpu6050_status_t mpu6050_reg_write(mpu6050_t *hmpu, uint8_t reg_address, 
  * @param   pdata: Pointer to buffer where received data will be stored
  * @retval  mpu6050_status_t
  */
-static mpu6050_status_t mpu6050_nonblocking_read(mpu6050_t *hmpu, uint8_t reg_address, uint8_t *pdata,
-                                                 uint16_t data_amount) {
+static mpu6050_status_t mpu6050_nonblocking_read(mpu6050_t *hmpu, uint8_t reg_address,
+                                                 uint8_t *pdata, uint16_t data_amount) {
     /* MPU6050 non-blocking register read wrapper */
     return i2c_read_dma((uint16_t)hmpu->address << 1, reg_address, pdata, data_amount);
 }
@@ -101,11 +101,12 @@ bool mpu6050_is_data_ready(void) {
  * @brief   Initialize MPU9250 device
  * @retval  mpu6050_status_t
  */
-mpu6050_status_t mpu6050_init(mpu6050_t *hmpu) {
+mpu6050_status_t mpu6050_init(mpu6050_t *hmpu, void *hi2c) {
     /* I2C initialization */
     hmpu->address = MPU6050_I2C_ADDRESS_1;
     hmpu->i2c_timeout = 100;
-    if (i2c_init() != MPU6050_OK)
+    hmpu->i2c_handle = hi2c;
+    if (i2c_init(hi2c) != MPU6050_OK)
         return MPU6050_ERROR;
     return MPU6050_OK;
 }
@@ -162,7 +163,8 @@ mpu6050_status_t mpu6050_accel_read_config(mpu6050_t *hmpu, uint8_t *paccelconfi
  * @param   GyroFullScale: Gyro Full Scale to set
  * @retval  mpu6050_status_t
  */
-mpu6050_status_t mpu6050_gyro_set_fullscale(mpu6050_t *hmpu, mpu6050_gyroconfig_fs_t gyro_fullscale) {
+mpu6050_status_t mpu6050_gyro_set_fullscale(mpu6050_t *hmpu,
+                                            mpu6050_gyroconfig_fs_t gyro_fullscale) {
     uint8_t reg_value;
     if (mpu6050_gyro_read_config(hmpu, &reg_value) != MPU6050_OK)
         return MPU6050_ERROR;
@@ -179,7 +181,8 @@ mpu6050_status_t mpu6050_gyro_set_fullscale(mpu6050_t *hmpu, mpu6050_gyroconfig_
  * @param   accel_fullscale: Accel Full Scale to set
  * @retval  mpu6050_status_t
  */
-mpu6050_status_t mpu6050_accel_set_fullscale(mpu6050_t *hmpu, mpu6050_accelconfig_fs_t accel_fullscale) {
+mpu6050_status_t mpu6050_accel_set_fullscale(mpu6050_t *hmpu,
+                                             mpu6050_accelconfig_fs_t accel_fullscale) {
     uint8_t reg_value;
     if (mpu6050_accel_read_config(hmpu, &reg_value) != MPU6050_OK)
         return MPU6050_ERROR;
@@ -198,7 +201,8 @@ mpu6050_status_t mpu6050_accel_set_fullscale(mpu6050_t *hmpu, mpu6050_accelconfi
  * @param   pgyroz: Pointer to buffer where Gyro Z-axis measurement will be stored
  * @retval  mpu6050_status_t
  */
-mpu6050_status_t mpu6050_gyro_read_raw(mpu6050_t *hmpu, uint16_t *pgyrox, uint16_t *pgyroy, uint16_t *pgyroz) {
+mpu6050_status_t mpu6050_gyro_read_raw(mpu6050_t *hmpu, uint16_t *pgyrox, uint16_t *pgyroy,
+                                       uint16_t *pgyroz) {
     uint8_t reg_value[6];
     if (mpu6050_burst_read(hmpu, MPU6050_GYRO_XOUT_H, reg_value, 6) != MPU6050_OK)
         return MPU6050_ERROR;
@@ -243,7 +247,8 @@ mpu6050_status_t mpu6050_gyro_read_from_buffer(mpu6050_t *hmpu, uint16_t *pgyrox
  * @param   paccelz: Pointer to buffer where Accel Z-axis measurement will be stored
  * @retval  mpu6050_status_t
  */
-mpu6050_status_t mpu6050_accel_read_raw(mpu6050_t *hmpu, uint16_t *paccelx, uint16_t *paccely, uint16_t *paccelz) {
+mpu6050_status_t mpu6050_accel_read_raw(mpu6050_t *hmpu, uint16_t *paccelx, uint16_t *paccely,
+                                        uint16_t *paccelz) {
     uint8_t reg_value[6];
     if (mpu6050_burst_read(hmpu, MPU6050_ACCEL_XOUT_H, reg_value, 6) != MPU6050_OK)
         return MPU6050_ERROR;
@@ -272,8 +277,8 @@ mpu6050_status_t mpu6050_accel_fetch(mpu6050_t *hmpu) {
  * @param   paccelz: Pointer to buffer where Accel Z-axis measurement will be stored
  * @retval  mpu6050_status_t
  */
-mpu6050_status_t mpu6050_accel_read_from_buffer(mpu6050_t *hmpu, uint16_t *paccelx, uint16_t *paccely,
-                                                uint16_t *paccelz) {
+mpu6050_status_t mpu6050_accel_read_from_buffer(mpu6050_t *hmpu, uint16_t *paccelx,
+                                                uint16_t *paccely, uint16_t *paccelz) {
     *paccelx = (rxbuffer[0] << 8) | rxbuffer[1];
     *paccely = (rxbuffer[2] << 8) | rxbuffer[3];
     *paccelz = (rxbuffer[4] << 8) | rxbuffer[5];

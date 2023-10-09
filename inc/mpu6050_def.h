@@ -44,6 +44,7 @@ typedef enum {
  * @brief MPU6050 handle structure definition
  */
 typedef struct {
+    void *i2c_handle;              /*!< I2C handle */
     mpu6050_i2c_address_t address; /*!< I2C slave address  */
     uint32_t i2c_timeout;          /*!< I2C timeout        */
 

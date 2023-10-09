@@ -46,22 +46,26 @@ typedef enum {
 
 } mpu6050_accelconfig_fs_t;
 
-mpu6050_status_t mpu6050_init(mpu6050_t *hmpu);
+mpu6050_status_t mpu6050_init(mpu6050_t *hmpu, void *hi2c);
 mpu6050_status_t mpu6050_sanity_check(mpu6050_t *hmpu);
 mpu6050_status_t mpu6050_read_pwrmgmt(mpu6050_t *hmpu, uint8_t *ppwrmgmt);
 mpu6050_status_t mpu6050_reset_pwrmgmt(mpu6050_t *hmpu);
 mpu6050_status_t mpu6050_gyro_read_config(mpu6050_t *hmpu, uint8_t *pgyroconfig);
-mpu6050_status_t mpu6050_accel_read_config(uint8_t *paccelconfig);
-mpu6050_status_t mpu6050_gyro_set_fullscale(mpu6050_t *hmpu, mpu6050_gyroconfig_fs_t gyro_fullscale);
-mpu6050_status_t mpu6050_accel_set_fullscale(mpu6050_t *hmpu, mpu6050_accelconfig_fs_t accel_fullscale);
-mpu6050_status_t mpu6050_gyro_read_raw(mpu6050_t *hmpu, uint16_t *pgyrox, uint16_t *pgyroy, uint16_t *pgyroz);
+mpu6050_status_t mpu6050_accel_read_config(mpu6050_t *hmpu, uint8_t *paccelconfig);
+mpu6050_status_t mpu6050_gyro_set_fullscale(mpu6050_t *hmpu,
+                                            mpu6050_gyroconfig_fs_t gyro_fullscale);
+mpu6050_status_t mpu6050_accel_set_fullscale(mpu6050_t *hmpu,
+                                             mpu6050_accelconfig_fs_t accel_fullscale);
+mpu6050_status_t mpu6050_gyro_read_raw(mpu6050_t *hmpu, uint16_t *pgyrox, uint16_t *pgyroy,
+                                       uint16_t *pgyroz);
 mpu6050_status_t mpu6050_gyro_fetch(mpu6050_t *hmpu);
 mpu6050_status_t mpu6050_gyro_read_from_buffer(mpu6050_t *hmpu, uint16_t *pgyrox, uint16_t *pgyroy,
                                                uint16_t *pgyroz);
-mpu6050_status_t mpu6050_accel_read_raw(mpu6050_t *hmpu, uint16_t *paccelx, uint16_t *paccely, uint16_t *paccelz);
+mpu6050_status_t mpu6050_accel_read_raw(mpu6050_t *hmpu, uint16_t *paccelx, uint16_t *paccely,
+                                        uint16_t *paccelz);
 mpu6050_status_t mpu6050_accel_fetch(mpu6050_t *hmpu);
-mpu6050_status_t mpu6050_accel_read_from_buffer(mpu6050_t *hmpu, uint16_t *paccelx, uint16_t *paccely,
-                                                uint16_t *paccelz);
+mpu6050_status_t mpu6050_accel_read_from_buffer(mpu6050_t *hmpu, uint16_t *paccelx,
+                                                uint16_t *paccely, uint16_t *paccelz);
 mpu6050_status_t mpu6050_temp_read_raw(mpu6050_t *hmpu, uint16_t *ptemp);
 mpu6050_status_t mpu6050_temp_fetch(mpu6050_t *hmpu);
 mpu6050_status_t mpu6050_temp_read_from_buffer(mpu6050_t *hmpu, uint16_t *ptemp);
