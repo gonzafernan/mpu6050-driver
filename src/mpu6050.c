@@ -296,7 +296,7 @@ mpu6050_status_t mpu6050_accel_read_from_buffer(mpu6050_t *hmpu, uint16_t *pacce
  * @retval  mpu6050_status_t
  */
 mpu6050_status_t mpu6050_temp_read_raw(mpu6050_t *hmpu, uint16_t *ptemp) {
-    uint8_t reg_value[6];
+    uint8_t reg_value[2];
     if (mpu6050_burst_read(hmpu, MPU6050_TEMP_OUT_H, reg_value, 2) != MPU6050_OK)
         return MPU6050_ERROR;
 
