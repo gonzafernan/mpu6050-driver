@@ -41,7 +41,7 @@ static uint8_t rxbuffer[6];          /*! Buffer with data from non-blocking read
  */
 static mpu6050_status_t mpu6050_reg_read(mpu6050_t *hmpu, uint8_t reg_address, uint8_t *pdata) {
     /* MPU6050 register read wrapper */
-    return i2c_reg_read((uint16_t)hmpu->address << 1, reg_address, pdata);
+    return i2c_reg_read(hmpu->i2c_handle, (uint16_t)hmpu->address << 1, reg_address, pdata);
 }
 
 /**
@@ -54,7 +54,8 @@ static mpu6050_status_t mpu6050_reg_read(mpu6050_t *hmpu, uint8_t reg_address, u
 static mpu6050_status_t mpu6050_burst_read(mpu6050_t *hmpu, uint8_t reg_address, uint8_t *pdata,
                                            uint16_t data_amount) {
     /* MPU6050 register read wrapper */
-    return i2c_burst_read((uint16_t)hmpu->address << 1, reg_address, pdata, data_amount);
+    return i2c_burst_read(hmpu->i2c_handle, (uint16_t)hmpu->address << 1, reg_address, pdata,
+                          data_amount);
 }
 
 /**
@@ -65,7 +66,7 @@ static mpu6050_status_t mpu6050_burst_read(mpu6050_t *hmpu, uint8_t reg_address,
  */
 static mpu6050_status_t mpu6050_reg_write(mpu6050_t *hmpu, uint8_t reg_address, uint8_t *pdata) {
     /* MPU6050 register write wrapper */
-    return i2c_reg_write((uint16_t)hmpu->address << 1, reg_address, pdata);
+    return i2c_reg_write(hmpu->i2c_handle, (uint16_t)hmpu->address << 1, reg_address, pdata);
 }
 
 /**
@@ -77,7 +78,8 @@ static mpu6050_status_t mpu6050_reg_write(mpu6050_t *hmpu, uint8_t reg_address, 
 static mpu6050_status_t mpu6050_nonblocking_read(mpu6050_t *hmpu, uint8_t reg_address,
                                                  uint8_t *pdata, uint16_t data_amount) {
     /* MPU6050 non-blocking register read wrapper */
-    return i2c_read_dma((uint16_t)hmpu->address << 1, reg_address, pdata, data_amount);
+    return i2c_read_dma(hmpu->i2c_handle, (uint16_t)hmpu->address << 1, reg_address, pdata,
+                        data_amount);
 }
 
 /**
@@ -107,6 +109,8 @@ mpu6050_status_t mpu6050_init(mpu6050_t *hmpu, void *hi2c) {
     hmpu->i2c_timeout = 100;
     hmpu->i2c_handle = hi2c;
     if (i2c_init(hi2c) != MPU6050_OK)
+        return MPU6050_ERROR;
+    if (mpu6050_reset_pwrmgmt(hmpu) != MPU6050_OK)
         return MPU6050_ERROR;
     return MPU6050_OK;
 }
@@ -195,7 +199,7 @@ mpu6050_status_t mpu6050_accel_set_fullscale(mpu6050_t *hmpu,
 }
 
 /**
- * @brief   Raw Gyroscope Measurements
+ * @brief   Raw Gyroscope Measurements blocking read
  * @param   pgyrox: Pointer to buffer where Gyro X-axis measurement will be stored
  * @param   pgyroy: Pointer to buffer where Gyro Y-axis measurement will be stored
  * @param   pgyroz: Pointer to buffer where Gyro Z-axis measurement will be stored
