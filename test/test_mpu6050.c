@@ -90,6 +90,58 @@ void test_mpu6050_incorrect_gyro_blocking_read(void) {
 }
 
 /**
+ * @brief Test correct accelerometer measurements blocking read
+ */
+void test_mpu6050_correct_accel_blocking_read(void) {
+    uint16_t accelx, accely, accelz;
+    i2c_burst_read_ExpectAndReturn(NULL, MPU6050_I2C_ADDRESS_1 << 1, MPU6050_ACCEL_XOUT_H, NULL, 6,
+                                   MPU6050_OK);
+    i2c_burst_read_IgnoreArg_pdata();
+
+    mpu6050_status_t status = mpu6050_accel_read_raw(&hmpu, &accelx, &accely, &accelz);
+    TEST_ASSERT_EQUAL(MPU6050_OK, status);
+}
+
+/**
+ * @brief Test incorrect accelerometer measurements blocking read
+ */
+void test_mpu6050_incorrect_accel_blocking_read(void) {
+    uint16_t accelx, accely, accelz;
+    i2c_burst_read_ExpectAndReturn(NULL, MPU6050_I2C_ADDRESS_1 << 1, MPU6050_ACCEL_XOUT_H, NULL, 6,
+                                   MPU6050_ERROR);
+    i2c_burst_read_IgnoreArg_pdata();
+
+    mpu6050_status_t status = mpu6050_accel_read_raw(&hmpu, &accelx, &accely, &accelz);
+    TEST_ASSERT_EQUAL(MPU6050_ERROR, status);
+}
+
+/**
+ * @brief Test correct temperature measurements blocking read
+ */
+void test_mpu6050_correct_temp_blocking_read(void) {
+    uint16_t temp;
+    i2c_burst_read_ExpectAndReturn(NULL, MPU6050_I2C_ADDRESS_1 << 1, MPU6050_TEMP_OUT_H, NULL, 2,
+                                   MPU6050_OK);
+    i2c_burst_read_IgnoreArg_pdata();
+
+    mpu6050_status_t status = mpu6050_temp_read_raw(&hmpu, &temp);
+    TEST_ASSERT_EQUAL(MPU6050_OK, status);
+}
+
+/**
+ * @brief Test incorrect temperature measurements blocking read
+ */
+void test_mpu6050_incorrect_temp_blocking_read(void) {
+    uint16_t temp;
+    i2c_burst_read_ExpectAndReturn(NULL, MPU6050_I2C_ADDRESS_1 << 1, MPU6050_TEMP_OUT_H, NULL, 2,
+                                   MPU6050_ERROR);
+    i2c_burst_read_IgnoreArg_pdata();
+
+    mpu6050_status_t status = mpu6050_temp_read_raw(&hmpu, &temp);
+    TEST_ASSERT_EQUAL(MPU6050_ERROR, status);
+}
+
+/**
  * @brief Test correct power management reset
  */
 void test_mpu6050_correct_reset_pwrmgmt(void) {
