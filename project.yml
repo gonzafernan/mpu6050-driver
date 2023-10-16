@@ -35,6 +35,8 @@
     - -:test/support
   :source:
     - src/**
+  :include:
+    - inc/**
   :support:
     - test/support
   :libraries: []
@@ -57,6 +59,7 @@
   :enforce_strict_ordering: TRUE
   :plugins:
     - :ignore
+    - :ignore_arg
     - :callback
   :treat_as:
     uint8:    HEX8
